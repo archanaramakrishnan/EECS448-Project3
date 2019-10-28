@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #url(r'^admin/', include(admin.site.urls)),
     url(r'^$', v.index),
+    url(r'^maps.html', v.maps),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
