@@ -25,6 +25,7 @@ urlpatterns = [
     #url(r'^admin/', include(admin.site.urls)),
     url(r'^$', v.index),
     url(r'^maps.html', v.maps),
+    url(r'^ratings_landing_page.html', v.ratings_landing_page),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -7,3 +7,6 @@ def index(request):
 
 def maps(request):
     return render_to_response('maps.html')
+
+def ratings_landing_page(request):
+    return render_to_response('ratings_landing_page.html')
