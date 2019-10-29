@@ -13,3 +13,6 @@ def ratings_landing_page(request):
 
 def rating_form(request):
     return render_to_response('rating_form.html')
+
+def ratings_view(request):
+    return render_to_response('ratings_view.html')
