@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #url(r'^admin/', include(admin.site.urls)),
     url(r'^$', v.index),
+    url(r'^advice.html', v.advice),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
