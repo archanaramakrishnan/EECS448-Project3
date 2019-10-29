@@ -10,3 +10,6 @@ def maps(request):
 
 def ratings_landing_page(request):
     return render_to_response('ratings_landing_page.html')
+
+def rating_form(request):
+    return render_to_response('rating_form.html')
