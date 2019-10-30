@@ -22,7 +22,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
-    #url(r'^admin/', include(admin.site.urls)),
     url(r'^$', v.index),
     url(r'^maps.html', v.maps),
 ]
