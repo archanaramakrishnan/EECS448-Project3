@@ -24,6 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', v.index),
     url(r'^maps.html', v.maps),
+    url(r'^ratings_landing_page.html', v.ratings_landing_page),
+    url(r'^rating_form.html', v.rating_form),
+    url(r'^ratings_view.html', v.ratings_view),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
