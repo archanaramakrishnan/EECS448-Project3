@@ -1,12 +1,13 @@
 from django import forms
 
 class RateForm(forms.Form):
+
         class_rated = forms.ChoiceField(label ='Class you want to rate',
-        choices = [('EECS101','EECS101'),
-                ('EECS168','EECS168'),
-                ('EECS 140','EECS 140'),
-                ('EECS 210','EECS 210'),
-                ('EECS 268','EECS 268')])
+        choices = [('EECS101','EECS 101'),
+                ('EECS168','EECS 168'),
+                ('EECS140','EECS 140'),
+                ('EECS210','EECS 210'),
+                ('EECS268','EECS 268')])
 
         #rater_name = forms.CharField(max_length=30, label='What is your name?:')
 
