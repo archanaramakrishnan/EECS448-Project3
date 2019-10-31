@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from .maps_form import mapsForm
-from .forms import PostForm
+from .rate_forms import RateForm
 
 # Create your views here.
 
@@ -14,8 +14,6 @@ def index(request):
 def ratings_landing_page(request):
     return render_to_response('ratings_landing_page.html')
 
-def rating_form(request):
-    return render_to_response('rating_form.html')
 
 def ratings_view(request):
     return render_to_response('ratings_view.html')
@@ -35,6 +33,11 @@ def maps(request):
     return render(request, 'maps_form.html', {'form':form})
 
 
-def post_new(request):
-    form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+def rating_form(request):
+    if request.method == "POST":
+        form = RateForm(request.POST)
+        if form.is_valid():
+            name=form.cleaned_data['name']
+            print(name);
+    form = RateForm()
+    return render(request, 'rating_form.html', {'form': form})
