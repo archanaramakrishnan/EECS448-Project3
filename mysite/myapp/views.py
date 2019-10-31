@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from .maps_form import mapsForm
+from .forms import PostForm
 
 # Create your views here.
 
@@ -32,3 +33,8 @@ def maps(request):
 
     form = mapsForm()
     return render(request, 'maps_form.html', {'form':form})
+
+
+def post_new(request):
+    form = PostForm()
+    return render(request, 'blog/post_edit.html', {'form': form})

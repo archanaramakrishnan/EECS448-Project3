@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^rating_form.html', v.rating_form),
     url(r'^ratings_view.html', v.ratings_view),
     path('', v.maps),
+    path('', v.post_new, name='post_new'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
