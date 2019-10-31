@@ -7,7 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    {{form}}
+    <form method="post">
+        <!--security feature-->
+        {% csrf_token %}
+            
+        {{form}}
+        <button type="submit">Submit</button>
+    </form>
+    
     
 </body>
 </html>
