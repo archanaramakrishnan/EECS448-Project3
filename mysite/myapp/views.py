@@ -5,10 +5,8 @@ from django.shortcuts import render, render_to_response
 def index(request):
     return render_to_response('index.html')
 
-<<<<<<< HEAD
 def advice(request):
     return render_to_response('advice.html')
-=======
 def maps(request):
     return render_to_response('maps.html')
 
@@ -20,4 +18,3 @@ def rating_form(request):
 
 def ratings_view(request):
     return render_to_response('ratings_view.html')
->>>>>>> devel
