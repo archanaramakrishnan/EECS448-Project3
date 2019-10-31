@@ -18,3 +18,9 @@ def rating_form(request):
 
 def ratings_view(request):
     return render_to_response('ratings_view.html')
+
+def upload_video(request):
+    return render_to_response('upload_video.html')
+
+def view_video(request):
+    return render_to_response('view_video.html')
