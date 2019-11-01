@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post">
-        <!--security feature-->
+    <form method="post" action="">
+        <!--security feature to prevent other websites from sending data to our server-->
         {% csrf_token %}
             
         {{form}}

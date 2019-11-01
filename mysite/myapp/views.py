@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from .maps_form import mapsForm
+from .maps_form import DistanceForm
 
 # Create your views here.
 
@@ -31,4 +32,18 @@ def maps(request):
             print(building1, building2, building3, building4)
 
     form = mapsForm()
-    return render(request, 'maps_form.html', {'form':form})
+    #return render(request, 'maps_form.html', {'form':form})
+
+def distance(request):
+    if request.method=="POST":
+        form = DistanceForm(request.POST)
+        if form.is_valid():
+            #return an object that has not been saved in the database yet
+            item=form.save(commit=False)
+
+            #save the object
+            item.save()
+        else:
+            #unbound form with no data
+            form=DistanceForm
+        return render(request, 'maps_form.html', {'form':form})

@@ -1,4 +1,10 @@
 from django import forms
+from django.forms import ModelForm
+from .models import DistanceForm
+
+class MapForm(ModelForm):
+    model=DistanceForm
+    fields="__all__"
 
 class mapsForm(forms.Form):
     building1 = forms.ChoiceField(choices=[('leep', 'LEEP2'),
