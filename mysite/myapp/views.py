@@ -33,7 +33,9 @@ def maps(request):
     form = mapsForm()
     return render(request, 'maps_form.html', {'form':form})
 
-
+def advice(request):
+     return render_to_response('advice.html')
+ 
 def rating_form(request):
     if request.method == "POST":
         form = RateForm(request.POST)
