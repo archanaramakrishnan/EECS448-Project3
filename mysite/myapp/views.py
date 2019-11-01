@@ -13,7 +13,9 @@ def index(request):
 #    return render_to_response('maps.html')
 
 def ratings_landing_page(request):
+#def index1(request):
     return render_to_response('ratings_landing_page.html')
+    #return render_to_response('index1.html')
 
 
 def ratings_view(request):
