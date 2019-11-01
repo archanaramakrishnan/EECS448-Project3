@@ -25,8 +25,11 @@ urlpatterns = [
     url(r'^$', v.index),
 
     url(r'^advice.html', v.advice),
+    url(r'^view_video.html', v.view_video),
+     url(r'^upload_video.html', v.upload_video),
 
     url(r'^maps.html', v.maps),
+    url(r'^time.html', v.time),
     url(r'^ratings_landing_page.html', v.ratings_landing_page),
     #url(r'^index1.html', v.index1),
     url(r'^rating_form.html', v.rating_form),
