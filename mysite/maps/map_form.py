@@ -4,4 +4,4 @@ from .models import Map
 class MapForm(ModelForm):
     class Meta:
         model=Map
-        fields='__all__'
+        fields=['title']
