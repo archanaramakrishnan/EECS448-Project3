@@ -1,7 +1,13 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from .maps_form import mapsForm
+<<<<<<< HEAD
 from .maps_form import DistanceForm
+||||||| merged common ancestors
+=======
+from .rate_forms import RateForm
+>>>>>>> devel
 
 # Create your views here.
 
@@ -12,10 +18,10 @@ def index(request):
 #    return render_to_response('maps.html')
 
 def ratings_landing_page(request):
+#def index1(request):
     return render_to_response('ratings_landing_page.html')
+    #return render_to_response('index1.html')
 
-def rating_form(request):
-    return render_to_response('rating_form.html')
 
 def ratings_view(request):
     return render_to_response('ratings_view.html')
@@ -47,3 +53,24 @@ def distance(request):
             #unbound form with no data
             form=DistanceForm
         return render(request, 'maps_form.html', {'form':form})
+    return render(request, 'maps_form.html', {'form':form})
+
+
+def rating_form(request):
+    if request.method == "POST":
+        form = RateForm(request.POST)
+        if form.is_valid():
+            class_rated=form.cleaned_data['class_rated']
+            class_difficulty_level=form.cleaned_data['class_difficulty_level']
+            class_hours_spent=form.cleaned_data['class_hours_spent']
+            rater_grade=form.cleaned_data['rater_grade']
+            class_exams_num=form.cleaned_data['class_exams_num']
+            class_hw=form.cleaned_data['class_hw']
+            class_comments=form.cleaned_data['class_comments']
+            class_overall=form.cleaned_data['class_overall']
+            print(class_rated,class_difficulty_level,class_hours_spent,rater_grade,class_exams_num,class_hw,class_comments,class_overall);
+            #it will go to view rating if successful
+            return HttpResponseRedirect('/ratings_view.html/')
+    else:
+        form = RateForm()
+    return render(request, 'rating_form.html', {'form': form})
