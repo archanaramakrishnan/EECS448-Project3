@@ -1,13 +1,9 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from .maps_form import mapsForm
-<<<<<<< HEAD
-from .maps_form import DistanceForm
-||||||| merged common ancestors
-=======
+#from .maps_form import MapForm
+#from .maps_form import Distance
 from .rate_forms import RateForm
->>>>>>> devel
 
 # Create your views here.
 
@@ -39,10 +35,10 @@ def maps(request):
 
     form = mapsForm()
     #return render(request, 'maps_form.html', {'form':form})
-
+"""
 def distance(request):
     if request.method=="POST":
-        form = DistanceForm(request.POST)
+        form = MapForm(request.POST)
         if form.is_valid():
             #return an object that has not been saved in the database yet
             item=form.save(commit=False)
@@ -51,10 +47,10 @@ def distance(request):
             item.save()
         else:
             #unbound form with no data
-            form=DistanceForm
-        return render(request, 'maps_form.html', {'form':form})
+            form=MapForm
+        #return render(request, 'maps_form.html', {'form':form})
     return render(request, 'maps_form.html', {'form':form})
-
+"""
 
 def rating_form(request):
     if request.method == "POST":

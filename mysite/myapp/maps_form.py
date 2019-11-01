@@ -1,10 +1,13 @@
 from django import forms
 from django.forms import ModelForm
-from .models import DistanceForm
+"""
+from .models import Distance
 
 class MapForm(ModelForm):
-    model=DistanceForm
-    fields="__all__"
+    class Meta:
+        model=Distance
+        fields="__all__"
+
 
 class mapsForm(forms.Form):
     building1 = forms.ChoiceField(choices=[('leep', 'LEEP2'),
@@ -34,3 +37,4 @@ class mapsForm(forms.Form):
                                         ('slawson', 'Slawson Hall'),
                                         ('budig', 'Budig Hall')
                                        ])
+"""
