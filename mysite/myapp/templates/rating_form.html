@@ -7,9 +7,38 @@
       <form method = "post">
 
        {% csrf_token %}
-
-      {{form}}
-
+       <label>Class you want to rate:</label>
+      {{form.class_rated}}
+      <br>
+      <br>
+      <label>Class difficulty level:</label>
+      {{form.class_difficulty_level}}
+      <br>
+      <br>
+      <label>Weekly workload in hours:</label>
+      {{form.class_hours_spent}}
+      <br>
+      <br>
+      <label>What grade did you get in the class:</label>
+      {{form.rater_grade}}
+      <br>
+      <br>
+      <label>How many exams was there?:</label>
+      {{form.class_exams_num}}
+      <br>
+      <br>
+      <label>Comments about the HW (up to 50 characters):</label>
+      {{form.class_hw}}
+      <br>
+      <br>
+      <label>How many exams was there?:Overall Comments (up to 300 characters):</label>
+      {{form.class_comments}}
+      <br>
+      <br>
+      <label>Overall message to freshman:</label>
+      {{form.class_overall}}
+      <br>
+      <br>
       <button type="submit">RATE</button>
     </form>
     </body>
