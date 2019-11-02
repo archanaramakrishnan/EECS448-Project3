@@ -1,5 +1,18 @@
 <form method="POST" action="">
     {% csrf_token %}
-    {{form}}
+
+    {{form.non_field_errors}}
+    <div class="field_wrapper">
+        {{form.building1.errors}}
+        <label for="{{form.description.id_for_label}}">Building 1:</label>
+        {{form.building1}}
+    </div>
+    
+    <div class="field_wrapper">
+        {{form.building2.errors}}
+        <label for="{{form.description.id_for_label}}">Building 2:</label>
+        {{form.building2}}
+    </div>
+
     <input type="submit" value="Submit">
 </form>

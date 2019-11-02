@@ -51,6 +51,17 @@ def distance(request):
         #return render(request, 'maps_form.html', {'form':form})
     return render(request, 'maps_form.html', {'form':form})
 """
+def advice(request):
+     return render_to_response('advice.html')
+
+def upload_video(request):
+     return render_to_response('upload_video.html')
+
+def view_video(request):
+     return render_to_response('view_video.html')
+
+def time(request):
+      return render_to_response('time.html')
 
 def rating_form(request):
     if request.method == "POST":
