@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+  {% load staticfiles %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Blog Home - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+
+  <link href="{% static 'for_forms/startbootstrap-blog-home-gh-pages/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'for_forms/startbootstrap-blog-home-gh-pages/css/blog-home.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Freshman starter kit</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/rating_form.html">Rate</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+        <h1 class="my-4">Class ratings
+          <small>EECS classes</small>
+        </h1>
+
+        <!-- Blog Post -->
+        <div class="card mb-4">
+          <img class="card-img-top" src="{% static 'for_forms/post1.jpg' %}" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">EECS ___</h2>
+            <p class="card-text">Class difficulty: Super Easy </p>
+            <p class="card-text">Weekly workload in hours: 0 to 3</p>
+            <p class="card-text">Grade received in the class: A</p>
+            <p class="card-text">Number of exams: 5</p>
+            <p class="card-text">Comments about the HW: Pretty easy and straight forward</p>
+            <p class="card-text">Overall Comments: Class is compulsory, so just take it whether you like it or not</p>
+            <p class="card-text">Number of exams: 5</p>
+            <p class="card-text">Overall message to freshman: You will be fine</p>
+
+          </div>
+          <div class="card-footer text-muted">
+          </div>
+        </div>
+        </div>
+
+
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Thanks for rating and viewing</h5>
+          <div class="card-body">
+            We are able to complile all the rating forms that upperclassmen filled.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'for_forms/startbootstrap-blog-home-gh-pages/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'for_forms/startbootstrap-blog-home-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>
