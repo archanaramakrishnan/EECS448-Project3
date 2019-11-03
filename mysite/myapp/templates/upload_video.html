@@ -1,47 +1,152 @@
-<!DOCTYPE html>
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+<!doctype html>
+
 <html lang="en">
 
 <head>
+  <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+ <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <title>Advice Home </title>
+{% load staticfiles %}
+<style>
 
-  <!-- Bootstrap core CSS -->
-  {% load staticfiles %}
-  <link href="{% static 'for_forms/startbootstrap-blog-home-gh-pages/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+.menu-open
+{
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  background-color: white;
+  color : black;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
 
-  <!-- Custom styles for this template -->
-  <link href="{% static 'for_forms/startbootstrap-blog-home-gh-pages/css/blog-home.css' %}" rel="stylesheet">
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 21px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
 
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+ <link href="{% static 'for_forms/rating_form.css' %}" rel="stylesheet"></link>
 </head>
-
 <body>
 
-
-  <!-- Page Content -->
-  <div class="container">
-
-
-
+  <div id="mySidenav" class="sidenav">
+    <a class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/">Home</a>
+    <a href="maps.html">Run to My Classes</a>
+    <a href="ratings_landing_page.html">Rate My Classes</a>
+    <a href="advice.html">Advice</a>
+    <a href="time.html">Study Time Manager</a>
   </div>
-  <!-- /.container -->
+  <button class="menu-open"onclick="openNav()">Menu</button>
 
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+
+  <form method = "post">
+  <div class="container-fluid">
+
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="login-heading mb-4">Upload you videos here!</h3>
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputName">Name</label>
+                  <input type="name" class="form-control" id="exampleInputName"  placeholder="Enter Name">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail">KU Email</label>
+                  <input type="password" class="form-control" id="exampleInputEmail" placeholder="Enter Email">
+                </div>
+                <div class="form-group">
+                <label for="selectYear">Select your current year</label>
+                <select class="form-control" id="selectYear">
+                  <option>Sophomore</option>
+                  <option>Junior</option>
+                  <option>Senior</option>
+                  <option>Graduate Student</option>
+                </select>
+              </div>
+              <div class="form-group">
+              <label for="selectMoney">Choose how you would like to earn money by uploading videos</label>
+              <select class="form-control" id="selectMoney">
+                <option>Earn beak em bucks</option>
+                <option>Money for my student organization</option>
+              </select>
+            </div>
+              <div class="form-group">
+              <label for="exampleReason">What will you be talking about?</label>
+              <textarea class="form-control" id="exampleReason" rows="3"></textarea>
+            </div>
+
+            <form>
+          <div class="form-group">
+            <label for="exampleVideo">Attach the video here</label>
+            <input type="file" class="form-control-file" id="exampleVideo">
+          </div>
+        </form>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- /.container -->
-  </footer>
+  </div>
+</div>
+</form>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
 </body>
-
 </html>

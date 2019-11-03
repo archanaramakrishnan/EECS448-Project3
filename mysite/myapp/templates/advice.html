@@ -1,50 +1,77 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
+
 <head>
-  <!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   {% load staticfiles %}
-   <!-- Bootstrap core CSS -->
-   <link href="{% static 'stat/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'for_advice/advice.css' %}" rel="stylesheet"></link>
 
-  <title>Advice</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Business Casual - Start Bootstrap Theme</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'stat/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'stat/css/business-casual.min.css' %}" rel="stylesheet">
+
 </head>
-    <body>
-      <div class= "container">
-          <center><h1 class="login-heading mb-4">Advice Social Network</h1></center>
-          <center><h2 class="login-heading mb-4">In this page you will be able to view videos from our currents students or upload video to earn beak em bucks!</h2></center>
-      </div>
 
-        <center><img class="rounded mx-auto d-block" src="static/stat/img/advice.jpg" style="width: auto; height: 300px; alt="""></center>
+<body>
 
-      <section class="page-section clearfix">
-        <div class="container">
-          <div class="intro">
-            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded"  alt="">
-            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-              <p class="mb-3">Here you can view videos from students!
-              </p>
-              <div class="intro-button mx-auto">
-                <a class="btn btn-primary btn-xl" href="view_video.html">View Videos</a>
-              </div>
-                <p class="mb-3">Here you can upload videos to earn beak em bucks!
-                </p>
-                <div class="intro-button mx-auto">
-                  <a class="btn btn-primary btn-xl" href="upload_video.html">Upload an Video</a>
-                </div>
+  <h1 class="site-heading text-center text-white d-none d-lg-block">
+    <span class="site-heading-upper text-primary mb-3">Jayhawk Starter Kit</span>
+    <span class="site-heading-lower">Advice Social Network!</span>
+  </h1>
 
-            </div>
+<center>
+  <section class="page-section clearfix">
+    <div class="container">
+
+
+          <h2 class="section-heading mb-4">
+
+          </h2>
+          <p class="mb-3">Choose this option to view videos
+          </p>
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="view_video.html">Click here to View!</a>
           </div>
-        </div>
-      </section>
-    </body>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</div>
+
+    </div>
+  </section>
+
+  <section class="page-section clearfix">
+    <div class="container">
+          <h2 class="section-heading mb-4">
+
+            <!--<span class="section-heading-lower">Worth Drinking</span> -->
+          </h2>
+          <p class="mb-3">Choose this option to upload videos.
+          </p>
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="upload_video.html">Click here upload videos</a>
+
+    </div>
+  </section>
+</center>
+
+  <footer class="footer text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0 small">Copyright &copy; Your Website 2019</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'stat/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'stat/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
 </html>
