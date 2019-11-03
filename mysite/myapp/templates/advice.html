@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   {% load staticfiles %}
+   <!-- Bootstrap core CSS -->
+   <link href="{% static 'stat/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'for_advice/advice.css' %}" rel="stylesheet"></link>
 
-<h1>Advice page</h1>
+  <title>Advice</title>
+</head>
+    <body>
+      <div class= "container">
+          <center><h1 class="login-heading mb-4">Advice Social Network</h1></center>
+          <center><h2 class="login-heading mb-4">In this page you will be able to view videos from our currents students or upload video to earn beak em bucks!</h2></center>
+      </div>
 
-<p>Choose an option to view or upload video</p>
-<button onclick="location.href='view_video.html'" id='view'> View Videos</button>
-<button onclick="location.href='upload_video.html'" id='upload'> Upload a Video to earn money!</button>
+        <center><img class="rounded mx-auto d-block" src="static/stat/img/advice.jpg" style="width: auto; height: 300px; alt="""></center>
 
-</body>
+      <section class="page-section clearfix">
+        <div class="container">
+          <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded"  alt="">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+              <p class="mb-3">Here you can view videos from students!
+              </p>
+              <div class="intro-button mx-auto">
+                <a class="btn btn-primary btn-xl" href="view_video.html">View Videos</a>
+              </div>
+                <p class="mb-3">Here you can upload videos to earn beak em bucks!
+                </p>
+                <div class="intro-button mx-auto">
+                  <a class="btn btn-primary btn-xl" href="upload_video.html">Upload an Video</a>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</div>
 </html>
