@@ -21,6 +21,9 @@ def ratings_landing_page(request):
 def ratings_view(request):
     return render_to_response('ratings_view.html')
 
+def ratings_view_class(request):
+    return render_to_response('ratings_view_class.html')
+
 def maps(request):
     if request.method == "POST":
         form = mapsForm(request.POST)

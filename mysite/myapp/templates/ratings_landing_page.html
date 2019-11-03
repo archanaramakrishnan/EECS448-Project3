@@ -19,16 +19,83 @@
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="{% static 'stat/css/business-casual.min.css' %}" rel="stylesheet">
 
+
+  <style>
+
+.menu-open
+{
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  background-color: white;
+  color : black;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 21px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+<link href="{% static 'stat/css/business-casual.min.css' %}" rel="stylesheet">
 </head>
 
 <body>
 
-  <h1 class="site-heading text-center text-white d-none d-lg-block">
-    <span class="site-heading-upper text-primary mb-3">Jayhawk Starter Kit</span>
-    <span class="site-heading-lower">Rate My Classes</span>
-  </h1>
+
+
+  <div id="mySidenav" class="sidenav">
+  <a class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/">Home</a>
+  <a href="maps.html">Run to My Classes</a>
+  <a href="ratings_landing_page.html">Rate My Classes</a>
+  <a href="advice.html">Advice</a>
+  <a href="time.html">Study Time Manager</a>
+</div>
+
+<!-- Use any element to open the sidenav -->
+<button class="menu-open"onclick="openNav()">Menu</button>
+<h1 class="site-heading text-center text-white d-none d-lg-block">
+  <span class="site-heading-upper text-primary mb-3">Jayhawk Starter Kit</span>
+  <span class="site-heading-lower">Rate My Classes</span>
+</h1>
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 
   <!-- Navigation -->
   <!--
@@ -62,7 +129,7 @@
   <section class="page-section clearfix">
     <div class="container">
       <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="static/stat/img/ratings.jpg" alt="">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="static/stat/img/t.jpg" alt="">
         <div class="intro-text left-0 text-center bg-faded p-5 rounded">
           <h2 class="section-heading mb-4">
             <span class="section-heading-upper">Rate the class</span>
@@ -106,7 +173,15 @@
   <!-- Bootstrap core JavaScript -->
   <script src="{% static 'stat/vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'stat/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
 
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
 </body>
 
 </html>
