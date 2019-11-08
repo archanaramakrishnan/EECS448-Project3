@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^ratings_view.html', v.ratings_view),
     url(r'^ratings_view_class.html', v.ratings_view_class),
     path('', v.maps),
+    #url(r'^maps.html', v.maps),
     path('', v.rating_form),
 
     url(r'^', include('maps.urls')),
