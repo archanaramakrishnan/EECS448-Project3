@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 #from .map_form import MapForm
-from .models import Building
+from .models import Building, MapForm
 # Create your views here.
-"""
+
 def add_map(request):
     if request.method == "POST":
         form = MapForm(request.POST)
@@ -14,11 +14,11 @@ def add_map(request):
     else:
         form = MapForm()
     return render(request, 'maps/map_form.html', {'form':form})  
-
+"""
 def map(request, id=id):
     map=Map.objects.get(id=id)
     return render(request, 'maps/map.html', {'map':map})
 """
 def building(request, id=id):
     build=Building()
-    return render(request, 'maps/map.html', {'build':build})
+    return render(request, 'maps/ind.html', {'build':build})

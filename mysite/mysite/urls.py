@@ -32,12 +32,12 @@ urlpatterns = [
     url(r'^maps.html', v.maps),
     url(r'^time.html', v.time),
     url(r'^ratings_landing_page.html', v.ratings_landing_page),
-    #url(r'^index1.html', v.index1),
+
     url(r'^rating_form.html', v.rating_form),
     url(r'^ratings_view.html', v.ratings_view),
     url(r'^ratings_view_class.html', v.ratings_view_class),
     path('', v.maps),
-    #url(r'^maps.html', v.maps),
+
     path('', v.rating_form),
 
     url(r'^', include('maps.urls')),
