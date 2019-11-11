@@ -1,10 +1,12 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from .maps_form import mapsForm
-from .rate_forms import RateForm
+#from .maps_form import mapsForm
+#from .rate_forms import RateForm
 from .models import Post
 from .advice_form import PostForm
+from .models import Rate
+from .rate_forms import RateForm
 from django.utils import timezone
 from django.shortcuts import redirect
 # Create your views here.
@@ -164,3 +166,36 @@ def rating_form(request):
     else:
         form = RateForm()
     return render(request, 'rating_form.html', {'form': form})
+
+def test(request):
+    """
+    Directs to the page to where you can choose from classes
+
+    **Template:**
+
+    :template:`myapp/ratings_view.html`
+    """
+    if request.method == "POST":
+        form = RateForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            class_rated=form.cleaned_data['class_rated']
+            class_difficulty_level=form.cleaned_data['class_difficulty_level']
+            #print(class_rated,class_difficulty_level,class_hours_spent,rater_grade,class_exams_num,class_hw,class_comments,class_overall);
+            #it will go to view rating if successful
+            #return HttpResponseRedirect('/ratings_view.html/')
+            post.save()
+    else:
+        form = RateForm()
+    return render(request, 'test.html', {'form': form})
+
+def test1(request):
+    """
+    Directs to view a posted video
+
+    **Template:**
+
+    :template:`myapp/view_video.html`
+    """
+    rates = Rate.objects.all();
+    return render(request, 'test1.html', {'rates': rates})
