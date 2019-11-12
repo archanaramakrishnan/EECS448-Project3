@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^ratings_landing_page.html', v.ratings_landing_page),
     #url(r'^index1.html', v.index1),
     url(r'^rating_form.html', v.rating_form),
+    url(r'^test_ratings.html', v.test_ratings),
     url(r'^ratings_view.html', v.ratings_view),
     url(r'^ratings_view_class.html', v.ratings_view_class),
     path('', v.maps),

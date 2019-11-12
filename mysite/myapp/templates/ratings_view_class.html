@@ -1,5 +1,6 @@
 <!DOCTYPE html>
   {% load staticfiles %}
+  {% load static %}
 <html lang="en">
 
 <head>
@@ -57,23 +58,25 @@
         </h1>
 
         <!-- Blog Post -->
+        {% for rate in rates %}
         <div class="card mb-4">
           <img class="card-img-top" src="{% static 'for_forms/post1.jpg' %}" alt="Card image cap">
           <div class="card-body">
-            <h2 class="card-title">EECS ___</h2>
-            <p class="card-text">Class difficulty: Super Easy </p>
-            <p class="card-text">Weekly workload in hours: 0 to 3</p>
-            <p class="card-text">Grade received in the class: A</p>
-            <p class="card-text">Number of exams: 5</p>
-            <p class="card-text">Comments about the HW: Pretty easy and straight forward</p>
-            <p class="card-text">Overall Comments: Class is compulsory, so just take it whether you like it or not</p>
-            <p class="card-text">Number of exams: 5</p>
-            <p class="card-text">Overall message to freshman: You will be fine</p>
+            <h2 class="card-title">{{ rate.class_rated }}</h2>
+
+            <p class="card-text">Class difficulty: {{ rate.class_difficulty_level }}</p>
+            <p class="card-text">Weekly workload in hours: {{ rate.class_hours_spent }}</p>
+            <p class="card-text">Grade received in the class: {{ rate.rater_grade }}</p>
+            <p class="card-text">Number of exams: {{ rate.class_exams_num }}</p>
+            <p class="card-text">Comments about the HW: {{ rate.class_hw }}</p>
+            <p class="card-text">Overall Comments: {{ rate.class_comments }}</p>
+            <p class="card-text">Overall message to freshman: {{ rate.class_overall }}</p>
 
           </div>
           <div class="card-footer text-muted">
           </div>
         </div>
+        {% endfor %}
         </div>
 
 

@@ -2,6 +2,7 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .maps_form import mapsForm
+from .models import Rate
 from .rate_forms import RateForm
 
 # Create your views here.
@@ -42,14 +43,13 @@ def ratings_view(request):
     return render_to_response('ratings_view.html')
 
 def ratings_view_class(request):
-    """
-    Directs to the page to view class ratings
-
-    **Template:**
-
-    :template:`myapp/ratings_view_class.html`
-    """
-    return render_to_response('ratings_view_class.html')
+        """
+        Directs to view a posted video
+        **Template:**
+        :template:`myapp/view_video.html`
+        """
+        rates = Rate.objects.all();
+        return render(request, 'ratings_view_class.html', {'rates': rates})
 
 def maps(request):
     """
@@ -123,6 +123,7 @@ def rating_form(request):
     if request.method == "POST":
         form = RateForm(request.POST)
         if form.is_valid():
+            post = form.save(commit=False)
             class_rated=form.cleaned_data['class_rated']
             class_difficulty_level=form.cleaned_data['class_difficulty_level']
             class_hours_spent=form.cleaned_data['class_hours_spent']
@@ -133,7 +134,17 @@ def rating_form(request):
             class_overall=form.cleaned_data['class_overall']
             print(class_rated,class_difficulty_level,class_hours_spent,rater_grade,class_exams_num,class_hw,class_comments,class_overall);
             #it will go to view rating if successful
-            return HttpResponseRedirect('/ratings_view.html/')
+            #return HttpResponseRedirect('/ratings_view.html/')
+            post.save()
     else:
         form = RateForm()
     return render(request, 'rating_form.html', {'form': form})
+
+def test_ratings(request):
+    """
+    Directs to view a posted video
+    **Template:**
+    :template:`myapp/view_video.html`
+    """
+    #rates = Rate.objects.all();
+    #return render(request, 'test_ratings.html', {'rates': rates})
