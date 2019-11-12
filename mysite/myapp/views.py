@@ -3,7 +3,10 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .maps_form import mapsForm
 from .rate_forms import RateForm
-
+from .models import Post
+from .advice_form import PostForm
+from django.utils import timezone
+from django.shortcuts import redirect
 # Create your views here.
 
 def index(request):
@@ -101,6 +104,30 @@ def view_video(request):
     :template:`myapp/view_video.html`
     """
     return render_to_response('view_video.html')
+
+def view_advice(request):
+    """
+    Directs to view a posted video
+
+    **Template:**
+
+    :template:`myapp/view_video.html`
+    """
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'view_advice.html', {'posts': posts})
+
+def post_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            #post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('view_advice.html')
+    else:
+        form = PostForm()
+    return render(request, 'post_new.html', {'form': form})
 
 def time(request):
     """
