@@ -57,6 +57,7 @@
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Services</h2>
           <h3 class="section-subheading text-muted">This options reminds you to take breaks depending on how long you have been active on the website</h3>
+         <h5>{% now "H:i" %}</h5>
         </div>
       </div>
     </div>
@@ -213,9 +214,12 @@
   <!-- Contact form JavaScript -->
   <script src="{% static 'for_timer/js/jqBootstrapValidation.js' %}"></script>
   <script src="{% static 'for_timer/js/contact_me.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="{% static 'for_timer/js/refreshTime.js' %}" ></script>
 
   <!-- Custom scripts for this template -->
   <script src="{% static 'for_timer/js/agency.min.js' %}"></script>
+
 
 </body>
 
