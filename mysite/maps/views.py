@@ -12,9 +12,6 @@ def add_map(request, id=id):
             #creates and saves an object bound to the form
             map_item=form.save(commit=False)
             map_item.save()
-
-
-
             return redirect('/maps/' + str(map_item.id) + '/')
     else:
         form = MapForm()
@@ -23,8 +20,17 @@ def add_map(request, id=id):
 
 
 def map(request, id=id):
-    map=Map.objects.get(id=id)
-    return render(request, 'maps/map.html', {'map':map})
+    #map=Map.objects.get(id=id)
+
+    context = {
+        'map':Map.objects.get(id=id),
+        'all_buildings': Building.objects.all()
+    }
+
+    return render(request, 'maps/map.html', context=context)
+
+
+    
 
 def building(request, id=id):
     build=Building()

@@ -1,6 +1,7 @@
 from django.db import models
 from django.forms import ModelForm
 
+"""
 BUILDING = [
     ('budig', 'Budig Hall'),
     ('wescoe', 'Wescoe Hall'),
@@ -9,6 +10,7 @@ BUILDING = [
     ('learned', 'Learned Hall'),
     ('eaton', 'Eaton Hall'),
 ]
+"""
 
 class Building(models.Model):
     name = models.CharField(max_length=100)
@@ -22,6 +24,8 @@ class BuildingForm(ModelForm):
     class Meta:
         model = Building
         fields = ['name', 'latitude', 'longitude']
+
+BUILDING=list([building.name, building.name] for building in Building.objects.all())
 
 # Create your models here.
 class Map(models.Model):

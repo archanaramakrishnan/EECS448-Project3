@@ -1,9 +1,20 @@
 {% extends 'maps/base.html' %}
 
 {% block content %}
-<p>{{building1}}</p>
-<p>{{building2}}</p>
-<p>{{distance}}</p>
+<p>{{map.building1}}</p>
+<p>{{map.building2}}</p>
+<p>{{map.building3}}</p>
 <p>{{map.building4}}</p>
 <p>{{map.building5}}</p>
+
+{% if foo %}
+  {% with a as b %}
+    {% include "snipet.html" %}
+  {% endwith %} 
+{% else %}
+  {% with bar as b %}
+    {% include "snipet.html" %}
+  {% endwith %} 
+{% endif %}
+
 {%endblock%}
