@@ -31,7 +31,7 @@ def map(request, id=id):
 
 
     
-
+"""
 def building(request, id=id):
     build=Building()
     return render(request, 'maps/ind.html', {'build':build})
@@ -57,3 +57,4 @@ def distance_calculator(request):
     }
 
     return render(request, 'maps/distance.html', context=context)
+"""

@@ -7,14 +7,9 @@
 <p>{{map.building4}}</p>
 <p>{{map.building5}}</p>
 
-{% if foo %}
-  {% with a as b %}
-    {% include "snipet.html" %}
-  {% endwith %} 
-{% else %}
-  {% with bar as b %}
-    {% include "snipet.html" %}
-  {% endwith %} 
-{% endif %}
-
+{% for building in all_buildings %}
+    {% if building.name == map.building1 %}
+        <p>{{ building.latitude }}</p>
+    {% endif %}
+{% endfor %}
 {%endblock%}
