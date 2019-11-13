@@ -1,6 +1,6 @@
 from django.db import models
 from django.forms import ModelForm
-
+from haversine import haversine
 """
 BUILDING = [
     ('budig', 'Budig Hall'),

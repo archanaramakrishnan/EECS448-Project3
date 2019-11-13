@@ -1,15 +1,46 @@
 {% extends 'maps/base.html' %}
 
 {% block content %}
-<p>{{map.building1}}</p>
-<p>{{map.building2}}</p>
-<p>{{map.building3}}</p>
-<p>{{map.building4}}</p>
-<p>{{map.building5}}</p>
 
 {% for building in all_buildings %}
     {% if building.name == map.building1 %}
+         <p>{{ building.name }}</p>
         <p>{{ building.latitude }}</p>
+        <p>{{ building.longitude }}</p>
     {% endif %}
 {% endfor %}
+
+{% for building in all_buildings %}
+    {% if building.name == map.building2 %}
+         <p>{{ building.name }}</p>
+        <p>{{ building.latitude }}</p>
+        <p>{{ building.longitude }}</p>
+    {% endif %}
+{% endfor %}
+
+{% for building in all_buildings %}
+    {% if building.name == map.building3 %}
+         <p>{{ building.name }}</p>  
+        <p>{{ building.latitude }}</p>
+        <p>{{ building.longitude }}</p>
+    {% endif %}
+{% endfor %}
+
+{% for building in all_buildings %}
+    {% if building.name == map.building4 %}
+        <p>{{ building.name }}</p>
+        <p>{{ building.latitude }}</p>
+        <p>{{ building.longitude }}</p>
+    {% endif %}
+{% endfor %}
+
+{% for building in all_buildings %}
+    {% if building.name == map.building5 %}
+        <p>{{ building.name }}</p>
+        <p>{{ building.latitude }}</p>
+        <p>{{ building.longitude }}</p>
+    {% endif %}
+{% endfor %}
+
+
 {%endblock%}
