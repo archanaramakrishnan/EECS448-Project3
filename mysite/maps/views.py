@@ -49,7 +49,7 @@ def distance_output(request, id=id):
     return render(request, 'maps/map.html', context=context)
 
 def shortest_distance(lat1, long1, lat2, long2):
-    return haversine((lat1, long1), (lat1, lat2))
+    return haversine((lat1, long1), (lat1, lat2), unit=Unit.MILES)
 
     
 """
