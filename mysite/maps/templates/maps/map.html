@@ -2,45 +2,38 @@
 
 {% block content %}
 
-<p>{{map1}}</p>
-
 {% for building in all_buildings %}
     {% if building.name == map.building1 %}
          <p>{{ building.name }}</p>
-        <p>{{ building.latitude }}</p>
-        <p>{{ building.longitude }}</p>
+         <p>{{ distances.0 }}</p>
     {% endif %}
 {% endfor %}
 
 {% for building in all_buildings %}
     {% if building.name == map.building2 %}
          <p>{{ building.name }}</p>
-        <p>{{ building.latitude }}</p>
-        <p>{{ building.longitude }}</p>
+         <p>{{ distances.1 }}</p>
     {% endif %}
 {% endfor %}
 
 {% for building in all_buildings %}
     {% if building.name == map.building3 %}
          <p>{{ building.name }}</p>  
-        <p>{{ building.latitude }}</p>
-        <p>{{ building.longitude }}</p>
+         <p>{{ distances.2 }}</p>
     {% endif %}
 {% endfor %}
 
 {% for building in all_buildings %}
     {% if building.name == map.building4 %}
         <p>{{ building.name }}</p>
-        <p>{{ building.latitude }}</p>
-        <p>{{ building.longitude }}</p>
+        <p>{{ distances.3 }}</p>
     {% endif %}
 {% endfor %}
 
 {% for building in all_buildings %}
     {% if building.name == map.building5 %}
         <p>{{ building.name }}</p>
-        <p>{{ building.latitude }}</p>
-        <p>{{ building.longitude }}</p>
+        <p>{{ distances.4 }}</p>
     {% endif %}
 {% endfor %}
 
