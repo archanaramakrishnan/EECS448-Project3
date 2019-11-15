@@ -12,24 +12,6 @@ def add_map(request, id=id):
             #creates and saves an object bound to the form
             map_item=form.save(commit=False)
             map_item.save()
-
-            user_buildings=[]
-            user_buildings.append(Building.objects.get(name=form.cleaned_data['building1']))
-            user_buildings.append(Building.objects.get(name=form.cleaned_data['building2']))
-            user_buildings.append(Building.objects.get(name=form.cleaned_data['building3']))
-            user_buildings.append(Building.objects.get(name=form.cleaned_data['building4']))
-            user_buildings.append(Building.objects.get(name=form.cleaned_data['building5']))
-
-            bldg1 = Building.objects.get(name=form.cleaned_data['building1'])
-            print(bldg1.latitude)
-
-            print(user_buildings)
-            
-            distances = []
-            for i in range(0, len(user_buildings)-1):
-                distances.append(haversine((user_buildings[i].latitude, user_buildings[i].longitude), (user_buildings[i+1].latitude, user_buildings[i+1].longitude)))
-
-            print(distances)
             
             #context = { 'distances': distances }
 
@@ -37,7 +19,30 @@ def add_map(request, id=id):
     else:
         form = MapForm()
 
-    return render(request, 'maps/map_form.html', {'form':form})  
+    user_buildings=[]
+    user_buildings.append(Building.objects.get(name=form.cleaned_data['building1']))
+    user_buildings.append(Building.objects.get(name=form.cleaned_data['building2']))
+    user_buildings.append(Building.objects.get(name=form.cleaned_data['building3']))
+    user_buildings.append(Building.objects.get(name=form.cleaned_data['building4']))
+    user_buildings.append(Building.objects.get(name=form.cleaned_data['building5']))
+
+    bldg1 = Building.objects.get(name=form.cleaned_data['building1'])
+    print(bldg1.latitude)
+
+    print(user_buildings)
+    
+    distances = []
+    for i in range(0, len(user_buildings)-1):
+        distances.append(haversine((user_buildings[i].latitude, user_buildings[i].longitude), (user_buildings[i+1].latitude, user_buildings[i+1].longitude)))
+
+    print(distances)
+
+    context = {
+        'form':MapForm(request.POST),
+        'distances': distances,
+    }
+
+    return render(request, 'maps/map_form.html', context=context)  
 
 
 def distance_output(request, id=id):
