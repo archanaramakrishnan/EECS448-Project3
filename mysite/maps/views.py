@@ -28,7 +28,9 @@ def add_map(request, id=id):
             global global_distances
             distances = []
             for i in range(0, len(user_buildings)-1):
-                distances.append(haversine((user_buildings[i].latitude, user_buildings[i].longitude), (user_buildings[i+1].latitude, user_buildings[i+1].longitude)))
+                b1=user_buildings[i]
+                b2=user_buildings[i+1]
+                distances.append(round(haversine((b1.latitude, b1.longitude), (b2.latitude, b2.longitude)), 2))
 
             global_distances = distances[:]
             print(distances)
@@ -52,31 +54,5 @@ def distance_output(request, id=id):
 def shortest_distance(lat1, long1, lat2, long2):
     return haversine((lat1, long1), (lat1, lat2), unit=Unit.MILES)
 
-    
-"""
-def building(request, id=id):
-    build=Building()
-    return render(request, 'maps/ind.html', {'build':build})
-
-def form_view(request):
-    context = {
-        'all_buildings': Building.objects.all()
-    }
-
-    if request.POST:
-        building_pk_list = request.POST.getlist('building', None)
-        print(request.POST.getlist('building', None))
-
-        selected_building_obj_list = Building.objects.filter(pk__in=building_pk_list)
-        print(selected_building_obj_list)
-
-
-    return render(request, 'maps/index.html', context=context)
-
-def distance_calculator(request):
-    context = {
-        'all_buildings': Building.objects.all()
-    }
-
-    return render(request, 'maps/distance.html', context=context)
-"""
+def shortest_distance(lat1, long1, lat2, long2):
+    return haversine((lat1, long1), (lat1, lat2), unit=Unit.MILES)
