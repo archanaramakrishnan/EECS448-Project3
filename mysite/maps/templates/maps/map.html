@@ -6,34 +6,41 @@
     {% if building.name == map.building1 %}
          <p>{{ building.name }}</p>
          <p>{{ distances.0 }} mi.</p>
-
     {% endif %}
 {% endfor %}
 
 {% for building in all_buildings %}
     {% if building.name == map.building2 %}
-         <p>{{ building.name }}</p>
-         <p>{{ distances.1 }} mi.</p>
+        {% if map.building1 != map.building2 %}
+            <p>{{ building.name }}</p>  
+            <p>{{ distances.2 }} mi.</p>
+        {% endif %}
     {% endif %}
 {% endfor %}
 
 {% for building in all_buildings %}
     {% if building.name == map.building3 %}
-         <p>{{ building.name }}</p>  
-         <p>{{ distances.2 }} mi.</p>
+        {% if map.building2 != map.building3 %}
+            <p>{{ building.name }}</p>  
+            <p>{{ distances.2 }} mi.</p>
+        {% endif %}
     {% endif %}
 {% endfor %}
 
 {% for building in all_buildings %}
     {% if building.name == map.building4 %}
-        <p>{{ building.name }}</p>
-        <p>{{ distances.3 }} mi.</p>
+        {% if map.building3 != map.building4 %}
+            <p>{{ building.name }}</p>
+            <p>{{ distances.3 }} mi.</p>
+        {% endif %}
     {% endif %}
 {% endfor %}
 
 {% for building in all_buildings %}
     {% if building.name == map.building5 %}
-        <p>{{ building.name }}</p>
+        {% if map.building4 != map.building5 %}
+            <p>{{ building.name }}</p>
+        {% endif %}
     {% endif %}
 {% endfor %}
 
