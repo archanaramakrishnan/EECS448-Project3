@@ -30,7 +30,7 @@ def add_map(request, id=id):
             for i in range(0, len(user_buildings)-1):
                 b1=user_buildings[i]
                 b2=user_buildings[i+1]
-                distances.append(round(haversine((b1.latitude, b1.longitude), (b2.latitude, b2.longitude)), 2))
+                distances.append(round(haversine((b1.latitude, b1.longitude), (b2.latitude, b2.longitude)), 4))
 
             global_distances = distances[:]
             print(distances)
