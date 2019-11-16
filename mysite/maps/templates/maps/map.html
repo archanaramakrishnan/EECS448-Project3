@@ -2,51 +2,11 @@
 
 {% block content %}
 
-{% for building in all_buildings %}
-    {% if building.name == map.building1 %}
-         <p>{{ building.name }}</p>
-         <p>{{ distances.0 }} mi.</p>
-         <p>{{ walking_times.0 }} minutes</p>
-    {% endif %}
+{% for building, distance, time in distance_info %}
+        <p>{{ building }}</p>
+        <p>{{ distance }} mi.</p>
+        <p>{{ time }} minutes</p>
 {% endfor %}
-
-{% for building in all_buildings %}
-    {% if building.name == map.building2 %}
-        {% if map.building1 != map.building2 %}
-            <p>{{ building.name }}</p>  
-            <p>{{ distances.2 }} mi.</p>
-            <p>{{ walking_times.1 }} minutes</p>
-        {% endif %}
-    {% endif %}
-{% endfor %}
-
-{% for building in all_buildings %}
-    {% if building.name == map.building3 %}
-        {% if map.building2 != map.building3 %}
-            <p>{{ building.name }}</p>  
-            <p>{{ distances.2 }} mi.</p>
-            <p>{{ walking_times.2 }} minutes</p>
-        {% endif %}
-    {% endif %}
-{% endfor %}
-
-{% for building in all_buildings %}
-    {% if building.name == map.building4 %}
-        {% if map.building3 != map.building4 %}
-            <p>{{ building.name }}</p>
-            <p>{{ distances.3 }} mi.</p>
-            <p>{{ walking_times.3 }} minutes</p>
-        {% endif %}
-    {% endif %}
-{% endfor %}
-
-{% for building in all_buildings %}
-    {% if building.name == map.building5 %}
-        {% if map.building4 != map.building5 %}
-            <p>{{ building.name }}</p>
-        {% endif %}
-    {% endif %}
-{% endfor %}
-
+<p>{{ final_building }} </p>
 
 {%endblock%}

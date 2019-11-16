@@ -10,12 +10,17 @@ def add_map(request, id=id):
             map_item=form.save(commit=False)
             map_item.save()
 
+            global user_buildings
             user_buildings=[]
             user_buildings.append(Building.objects.get(name=form.cleaned_data['building1']))
             user_buildings.append(Building.objects.get(name=form.cleaned_data['building2']))
             user_buildings.append(Building.objects.get(name=form.cleaned_data['building3']))
             user_buildings.append(Building.objects.get(name=form.cleaned_data['building4']))
             user_buildings.append(Building.objects.get(name=form.cleaned_data['building5']))
+
+            #remove duplicates
+            from itertools import groupby
+            [x[0] for x in groupby(user_buildings)]
             
             global global_distances
             global_distances = []
@@ -44,32 +49,14 @@ def add_map(request, id=id):
         form = MapForm()
 
     return render(request, 'maps/map_form.html', {'form':form})  
-"""
-def shortest_distance(lat1, long1, lat2, long2):
-    return haversine((lat1, long1), (lat1, lat2), unit=Unit.MILES)
 
-def walking_time():
-    distances = global_distances[:]
-
-    global times
-    times = []
-
-    #average walking speed in miles/minutes of people in their 20s
-    avg_speed = 0.05033333
-
-    for distance in distances:
-        times.append(distance/avg_speed)
-
-    print(times)
-"""
 def distance_output(request, id=id):
     context = {
-        'map':Map.objects.get(id=id),
-        'all_buildings': Building.objects.all(),
-        'distances':global_distances,
-        'walking_times':global_times
+        'distance_info': zip(user_buildings, global_distances, global_times),
+        'final_building': user_buildings[-1],
     }
 
+    print(user_buildings)
     print(global_distances)
     print(global_times)
 
