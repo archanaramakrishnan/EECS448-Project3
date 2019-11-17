@@ -20,7 +20,7 @@ def add_map(request, id=id):
 
             #remove duplicates
             from itertools import groupby
-            [x[0] for x in groupby(user_buildings)]
+            user_buildings = [k for k, g in groupby(user_buildings)]
             
             global global_distances
             global_distances = []
@@ -31,7 +31,6 @@ def add_map(request, id=id):
 
             distances = global_distances[:]
 
-            print(distances)
 
             global global_times
             global_times = []
@@ -41,8 +40,6 @@ def add_map(request, id=id):
 
             for distance in distances:
                 global_times.append(round(distance/avg_speed, 4))
-
-            #print(global_times)
 
             return redirect('/maps/' + str(map_item.id) + '/')
     else:
@@ -55,9 +52,5 @@ def distance_output(request, id=id):
         'distance_info': zip(user_buildings, global_distances, global_times),
         'final_building': user_buildings[-1],
     }
-
-    print(user_buildings)
-    print(global_distances)
-    print(global_times)
 
     return render(request, 'maps/map.html', context=context)
