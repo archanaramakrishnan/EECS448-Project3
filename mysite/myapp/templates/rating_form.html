@@ -92,39 +92,8 @@
               <h3 class="login-heading mb-4">Write a class review</h3>
               <form>
                  {% csrf_token %}
-                <div class="form-label-group">
-                  {{form.class_rated.label}}
-                  {{form.class_rated}}
-                </div>
-                <div class="form-label-group">
-                  {{form.class_difficulty_level.label}}
-                  {{form.class_difficulty_level}}
-                </div>
-                <div class="form-label-group">
-                  {{form.class_hours_spent.label}}
-                  {{form.class_hours_spent}}
-                </div>
-                <div class="form-label-group">
-                  {{form.rater_grade.label}}
-                  {{form.rater_grade}}
-                </div>
-                <div class="form-label-group">
-                  {{form.class_exams_num.label}}
-                  {{form.class_exams_num}}
-                </div>
-                <div class="form-label-group">
-                  {{form.class_hw.label}}
-                  {{form.class_hw}}
-                </div>
-                <div class="form-label-group">
-                  {{form.class_comments.label}}
-                  {{form.class_comments}}
-                </div>
-                <div class="form-label-group">
-                  {{form.class_overall.label}}
-                  {{form.class_overall}}
-                </div>
-                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Rate Class</button>
+                  {{ form.as_p }}
+                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" >Rate Class</button>
               </form>
           </div>
         </div>
