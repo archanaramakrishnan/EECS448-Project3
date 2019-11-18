@@ -17,7 +17,7 @@ class Post(models.Model):
     #SENIOR = 'SR'
     #GRADUATE = 'GR'
     YEAR_IN_SCHOOL_CHOICES = [
-        ('Freshman', 'Foeshman'),
+        ('Freshman', 'Freshman'),
         ('Sophomore', 'Sophomore'),
         ('Junior', 'Junior'),
         ('Senior', 'Senior'),
