@@ -48,11 +48,23 @@ class Preference(models.Model):
 
 class Rate(models.Model):
 
-        CLASS_RATED = [('EECS101','EECS 101'),
-                ('EECS168','EECS 168'),
-                ('EECS140','EECS 140'),
-                ('EECS210','EECS 210'),
-                ('EECS268','EECS 268'),]
+        CLASS_RATED =[('EECS101','EECS 101'),
+                        ('EECS168','EECS 168'),
+                        ('EECS140','EECS 140'),
+                        ('EECS210','EECS 210'),
+                        ('EECS268','EECS 268'),
+                        ('EECS368','EECS 368'),
+                        ('EECS388','EECS 388'),
+                        ('EECS448','EECS 448'),
+                        ('EECS510','EECS 510'),
+                        ('EECS560','EECS 560'),
+                        ('MATH125','MATH 125'),
+                        ('MATH126','MATH 126'),
+                        ('MATH127','MATH 127'),
+                        ('MATH290','MATH 290'),
+                        ('PHSX210','PHSX 210'),
+                        ('PHSX216','PHSX 216'),
+                        ('PHSX212','PHSX 236'),]
 
         class_rated = models.CharField(
         max_length=20,
