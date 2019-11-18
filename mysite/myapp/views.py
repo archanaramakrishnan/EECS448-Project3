@@ -31,7 +31,7 @@ def ratings_landing_page(request):
     return render_to_response('ratings_landing_page.html')
     #return render_to_response('index1.html')
 
-
+"""This def is used to get all the eecs classes even if the rating view class def filters them"""
 def ratings_view(request):
     """
     Directs to the page to where you can choose from classes
@@ -40,16 +40,26 @@ def ratings_view(request):
 
     :template:`myapp/ratings_view.html`
     """
-    return render_to_response('ratings_view.html')
+    choiceToFilter = Rate.objects.all()
+    return render(request, 'ratings_view_class.html', {'choiceToFilter': choiceToFilter})
 
+"""This def is used to filter out the class that was chosen"""
 def ratings_view_class(request):
         """
         Directs to view a posted video
         **Template:**
         :template:`myapp/view_video.html`
         """
-        rates = Rate.objects.all();
-        return render(request, 'ratings_view_class.html', {'rates': rates})
+        theClassRated= request.GET.get('classChoice', None);
+        context = {};
+        if theClassRated and request.method == 'GET':
+            if theClassRated == 'all':
+                rates = Rate.objects.all()
+                context.update({'rates': rates})
+            else:
+                rates = Rate.objects.filter(class_rated=theClassRated)
+                context.update({'rates': rates})
+        return render(request, 'ratings_view_class.html', context)
 
 def maps(request):
     """

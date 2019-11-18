@@ -59,18 +59,24 @@
           <small>EECS classes</small>
         </h1>
 
-        <!--Drop Down select to filter the classes-->
-          <select>
-          <option value="all">ALL</option>
-            {% for rate in rates %}
-          <option value="{{ rate.class_rated }}">{{ rate.class_rated }}</option>
-          {% endfor %}
-          </select>
+        <form id="searchform"  method="get" action="" accept-charset="utf-8">
+                <!--Drop Down select to filter the classes-->
+                  <select id="classChoice" name="classChoice">
+                  <option value="all">ALL</option>
+                    {% for choiceToFilter in rates %}
+                  <option value="{{ choiceToFilter.class_rated }}">{{ choiceToFilter.class_rated }}</option>
+                  {% endfor %}
+                  </select>
+                  <br><br>
+                <input type="submit" value="OK" onclick="location.href='ratings_view_class.html';">
+        </form>
           <br><br>
-
         <!-- Blog Post -->
         <div class="card mb-4">
+
+
         {% for rate in rates %}
+
           <img class="card-img-top" src="{% static 'for_forms/post1.jpg' %}" alt="Card image cap">
           <div class="card-body">
             <h2 class="card-title">{{ rate.class_rated }}</h2>
@@ -91,6 +97,7 @@
         </div>
 
         </div>
+
 
 
 
@@ -117,7 +124,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Freshman Starter Kit</p>
     </div>
     <!-- /.container -->
   </footer>
