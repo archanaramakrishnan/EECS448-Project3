@@ -58,31 +58,13 @@
           <h2 class="section-heading text-uppercase">Services</h2>
           <h3 class="section-subheading text-muted">This options reminds you to take breaks depending on how long you have been active on the website</h3>
           <h4>
-            <script>
-            function startTimer(duration, display) {
-                var start = Date.now(),
-                    len,
-                    minutes,
-                    seconds;
-                function timer() {
-                    len = (((Date.now() - start) / 1000) | 0) ;
-                    minutes = (len / 60) | 0;
-                    seconds = (len % 60) | 0;
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    seconds = seconds < 10 ? "0" + seconds : seconds;
-                    display.textContent = minutes + ":" + seconds;
-                };
-                timer();
-                setInterval(timer, 1000);
-            }
-            window.onload = function () {
-                var twentyMin = 60 * 20,
-                    display = document.querySelector('#time');
-                startTimer(twentyMin, display);
-            };
-            </script>
-        </h4>
-  <p>You have spent this long on the website so far: <span id="time"></span> minutes</p>
+
+         <h2 class="section-heading text-uppercase">
+         <p>You have been active this long:</p>
+           <div class="row justify-content-center border rounded-pill">
+           <span id="time"></span>
+           <div>
+         </h2>
         </div>
       </div>
     </div>
