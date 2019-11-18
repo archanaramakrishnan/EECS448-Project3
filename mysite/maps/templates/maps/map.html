@@ -20,19 +20,13 @@
         <h1>Walk Time Calculator</h1>
       
         <ul class="timeline">
-          <li class="event" data-date="65Million B.C.">
-            {% for building, distance, time in distance_info %}
-                <h2>{{ building }}</h2>
+          <li class="event">
+            {% for start, destination, distance, time in distance_info %}
+                <h2>From {{ start }} to {{ destination }}</h2>
                 <h3>{{ time }} minutes</h3>
                 <p>{{ distance }} mi.</p>
-                <p>..................</p>
+                <p>..........................................................................................</p>
             {% endfor %}
-          </li>
-          <li class="event" data-date="65Million B.C.">
-                <h2>{{ final_building }} </h2>
-              </li>
-        
-      <p><a href="https://www.squareflair.com">squareflair.com</a></p>
           </li>
         </ul>
       </div>
