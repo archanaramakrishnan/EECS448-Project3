@@ -4,10 +4,34 @@ from django.utils import timezone
 
 
 class Post(models.Model):
+    user_name = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    likes= models.IntegerField(default=0)
+    #likes= models.ManyToManyField('self',related_name = 'likes', blank = 'true')
+    #FRESHMAN = 'FR'
+    #SOPHOMORE = 'SP'
+    #JUNIOR = 'JR'
+    #SENIOR = 'SR'
+    #GRADUATE = 'GR'
+    YEAR_IN_SCHOOL_CHOICES = [
+        ('Freshman', 'Foeshman'),
+        ('Sophomore', 'Sophomore'),
+        ('Junior', 'Junior'),
+        ('Senior', 'Senior'),
+        ('Graduate', 'Graduate'),
+    ]
+
+    year_in_school = models.CharField(
+        max_length=9,
+        choices=YEAR_IN_SCHOOL_CHOICES,
+        default='GRADUATE',
+
+
+    )
+
 
     def publish(self):
         self.published_date = timezone.now()
@@ -15,6 +39,13 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class Preference(models.Model):
+    post= models.ForeignKey(Post, on_delete=models.DO_NOTHING,)
+    value= models.IntegerField()
+
 
 
 class Rate(models.Model):

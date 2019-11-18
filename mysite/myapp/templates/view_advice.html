@@ -33,8 +33,11 @@
                   <div class="date">
                       <p>published: {{ post.published_date }}</p>
                   </div>
-                  <h2><a href="">{{ post.title }}</a></h2>
+                  <h2><a href="">{{ post.user_name }}</a></h2>
+                  <h4><a href="">{{ post.year_in_school }}</a></h4>
+                  <h3><a href="">{{ post.title }}</a></h3>
                   <p>{{ post.text|linebreaksbr }}</p>
+                  <button type="submit">Like</button>
               </div>
           {% endfor %}
 

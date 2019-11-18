@@ -115,7 +115,7 @@ def view_advice(request):
 
     :template:`myapp/view_video.html`
     """
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'view_advice.html', {'posts': posts})
 
 def post_new(request):
