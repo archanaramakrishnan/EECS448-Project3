@@ -26,7 +26,7 @@ class Rate(models.Model):
 
         CLASS_HOURS_SPENT =[('choice1','0 to 3'),
                 ('choice2','3 to 6'),
-                ('choice3','6 to 19'),
+                ('choice3','6 to 9'),
                 ('choice4','9 to 12'),
                 ('choice5','over 12')]
 
