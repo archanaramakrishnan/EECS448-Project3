@@ -21,6 +21,9 @@ def add_map(request, id=id):
             #remove duplicates
             from itertools import groupby
             user_buildings = [k for k, g in groupby(user_buildings)]
+
+            global destination_buildings
+            destination_buildings = user_buildings[1:]
             
             global global_distances
             global_distances = []
@@ -49,7 +52,7 @@ def add_map(request, id=id):
 
 def distance_output(request, id=id):
     context = {
-        'distance_info': zip(user_buildings, global_distances, global_times),
+        'distance_info': zip(user_buildings, destination_buildings, global_distances, global_times),
         'final_building': user_buildings[-1],
     }
 
