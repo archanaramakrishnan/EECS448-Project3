@@ -90,10 +90,10 @@
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
               <h3 class="login-heading mb-4">Write a class review</h3>
-              <form>
+              <form method="POST">
                  {% csrf_token %}
-                  {{ form.as_p }}
-                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" >Rate Class</button>
+                 {{ form.as_p }}
+                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Rate Class</button>
               </form>
           </div>
         </div>

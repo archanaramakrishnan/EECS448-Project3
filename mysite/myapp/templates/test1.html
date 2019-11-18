@@ -1,0 +1,16 @@
+{% load static %}
+<html>
+    <head>
+    </head>
+    <body>
+      Hi there!
+                  {% for rate in rates %}
+                    <div>
+                    <div>
+                    {{ rate.class_rated }}
+                    </div>
+                    <p>{{ rate.class_difficulty_level }}</p>
+                  </div>
+                  {% endfor %}
+    </body>
+</html>
