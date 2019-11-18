@@ -109,3 +109,9 @@ class Rate(models.Model):
         max_length=20,
         choices=CLASS_OVERALL,
         default='I am so sorry for you',)
+# Create your models here.
+class Map(models.Model):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return '%s' % self.title
