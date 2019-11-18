@@ -17,12 +17,14 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.urls import path
 from myapp import views as v
+from maps import views as map_views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     url(r'^$', v.index),
+    url(r'^add/maps', map_views.add_map),
 
     url(r'^advice.html', v.advice),
     url(r'^view_video.html', v.view_video),
@@ -32,13 +34,16 @@ urlpatterns = [
     url(r'^maps.html', v.maps),
     url(r'^time.html', v.time, name = "time"),
     url(r'^ratings_landing_page.html', v.ratings_landing_page),
-    #url(r'^index1.html', v.index1),
+
     url(r'^rating_form.html', v.rating_form),
     url(r'^test_ratings.html', v.test_ratings),
     url(r'^ratings_view.html', v.ratings_view),
     url(r'^ratings_view_class.html', v.ratings_view_class),
     path('', v.maps),
+
     path('', v.rating_form),
+
+    url(r'^', include('maps.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
