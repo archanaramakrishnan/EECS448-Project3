@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from .maps_form import mapsForm
 from .models import Rate
 from .rate_forms import RateForm
+from django.db.models import Count
 
 # Create your views here.
 
@@ -52,7 +53,7 @@ def ratings_view_class(request):
         theClassRated= request.GET.get('classChoice', None);
         context = {};
         """This def is used to get all the eecs classes even if the rating view class def filters them"""
-        choiceToFilter = Rate.objects.all()
+        choiceToFilter = Rate.objects.values('class_rated').distinct()
         if theClassRated and request.method == 'GET':
             if theClassRated == 'all':
                 rates = Rate.objects.all()
