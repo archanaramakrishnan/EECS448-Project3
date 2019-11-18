@@ -27,10 +27,13 @@ def add_map(request, id=id):
             
             global global_distances
             global_distances = []
+
             for i in range(0, len(user_buildings)-1):
                 b1=user_buildings[i]
                 b2=user_buildings[i+1]
-                global_distances.append(round(haversine((b1.latitude, b1.longitude), (b2.latitude, b2.longitude), unit=Unit.MILES), 4))
+                shortest_distance = round((haversine((b1.latitude, b1.longitude), (b2.latitude, b2.longitude), unit=Unit.MILES)), 3)
+                offset = round((0.2*shortest_distance), 3)
+                global_distances.append(shortest_distance+offset)
 
             distances = global_distances[:]
 
@@ -39,10 +42,10 @@ def add_map(request, id=id):
             global_times = []
 
             #average walking speed in miles/minutes of people in their 20s
-            avg_speed = 0.05033333
+            avg_speed = round(0.05033333, 3)
 
             for distance in distances:
-                global_times.append(round(distance/avg_speed, 4))
+                global_times.append(round(distance/avg_speed, 3))
 
             return redirect('/maps/' + str(map_item.id) + '/')
     else:
