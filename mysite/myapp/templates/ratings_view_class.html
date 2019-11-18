@@ -63,8 +63,8 @@
                 <!--Drop Down select to filter the classes-->
                   <select id="classChoice" name="classChoice">
                   <option value="all">ALL</option>
-                    {% for choiceToFilter in rates %}
-                  <option value="{{ choiceToFilter.class_rated }}">{{ choiceToFilter.class_rated }}</option>
+                    {% for rate in choiceToFilter %}
+                  <option value="{{ rate.class_rated }}">{{ rate.class_rated }}</option>
                   {% endfor %}
                   </select>
                   <br><br>
