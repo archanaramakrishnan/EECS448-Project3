@@ -149,6 +149,7 @@ def rating_form(request):
             #it will go to view rating if successful
             #return HttpResponseRedirect('/ratings_view.html/')
             post.save()
+            return HttpResponseRedirect("ratings_view_class.html")
     else:
         form = RateForm()
     return render(request, 'rating_form.html', {'form': form})
