@@ -8,7 +8,7 @@ from .advice_form import PostForm
 from django.utils import timezone
 from datetime import datetime
 from django.shortcuts import redirect
-#from .maps_form import mapsForm
+from .maps_form import mapsForm
 from .models import Rate
 from .rate_forms import RateForm
 from django.db.models import Count
@@ -90,23 +90,8 @@ def maps(request):
             print(building1, building2, building3, building4)
 
     form = mapsForm()
-    #return render(request, 'maps_form.html', {'form':form})
-"""
-def distance(request):
-    if request.method=="POST":
-        form = MapForm(request.POST)
-        if form.is_valid():
-            #return an object that has not been saved in the database yet
-            item=form.save(commit=False)
-
-            #save the object
-            item.save()
-        else:
-            #unbound form with no data
-            form=MapForm
-        #return render(request, 'maps_form.html', {'form':form})
     return render(request, 'maps_form.html', {'form':form})
-"""
+
 def advice(request):
     """
     Directs to advice homepage
