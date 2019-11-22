@@ -12,11 +12,17 @@ def add_map(request, id=id):
 
             global user_buildings
             user_buildings=[]
-            user_buildings.append(Building.objects.get(name=form.cleaned_data['building1']))
-            user_buildings.append(Building.objects.get(name=form.cleaned_data['building2']))
-            user_buildings.append(Building.objects.get(name=form.cleaned_data['building3']))
-            user_buildings.append(Building.objects.get(name=form.cleaned_data['building4']))
-            user_buildings.append(Building.objects.get(name=form.cleaned_data['building5']))
+
+            if form.cleaned_data['building1']:
+                user_buildings.append(Building.objects.get(name=form.cleaned_data['building1']))
+            if form.cleaned_data['building2']:
+                user_buildings.append(Building.objects.get(name=form.cleaned_data['building2']))
+            if form.cleaned_data['building3']:
+                user_buildings.append(Building.objects.get(name=form.cleaned_data['building3']))
+            if form.cleaned_data['building4']:
+                user_buildings.append(Building.objects.get(name=form.cleaned_data['building4']))
+            if form.cleaned_data['building5']:
+                user_buildings.append(Building.objects.get(name=form.cleaned_data['building5']))
 
             #remove duplicates
             from itertools import groupby
