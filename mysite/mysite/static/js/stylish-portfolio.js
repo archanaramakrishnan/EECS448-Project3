@@ -51,6 +51,27 @@ var onMapMouseleaveHandler = function(event) {
   that.off('mouseleave', onMapMouseleaveHandler);
   that.find('iframe').css("pointer-events", "none");
 }
+
+  function startTimer(duration, display) {
+      var start = Date.now(),len,minutes, seconds;
+      function timer() {
+          len = (((Date.now() - start) / 1000) | 0) ;
+          minutes = (len / 60) | 0;
+          seconds = (len % 60) | 0;
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+          display.textContent = minutes + ":" + seconds;
+      };
+      timer();
+      setInterval(timer, 1000);
+  }
+  window.onload = function () {
+     var twentyMin = 60 * 20,
+     display = document.querySelector('#time');
+     startTimer(twentyMin, display);
+  };
+
+
 var onMapClickHandler = function(event) {
   var that = $(this);
   // Disable the click handler until the user leaves the map area
