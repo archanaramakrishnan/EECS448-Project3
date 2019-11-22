@@ -42,9 +42,13 @@ class Post(models.Model):
 
 
 
-class Preference(models.Model):
+class Like(models.Model):
     post= models.ForeignKey(Post, on_delete=models.DO_NOTHING,)
     value= models.IntegerField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    #class Meta:
+       #unique_together = ("post", "value")
 
 
 

@@ -38,6 +38,8 @@ url(r'^post_new.html', v.post_new, name='post_new'),
     url(r'^test1.html', v.test1),
     url(r'^ratings_view.html', v.ratings_view),
     url(r'^ratings_view_class.html', v.ratings_view_class),
+    
+    #url(r'^(?P<postid>\d+)/preference/(?P<userpreference>\d+)/$', postpreference, name='postpreference'),
     path('', v.maps),
     path('', v.rating_form),
 ]
