@@ -29,11 +29,11 @@ BUILDING=list([building.name, building.name] for building in Building.objects.al
 
 # Create your models here.
 class Map(models.Model):
-    building1=models.CharField(max_length=255, choices=BUILDING)
-    building2=models.CharField(max_length=255, choices=BUILDING)
-    building3=models.CharField(max_length=255, choices=BUILDING)
-    building4=models.CharField(max_length=255, choices=BUILDING)
-    building5=models.CharField(max_length=255, choices=BUILDING)
+    building1=models.CharField(max_length=255, choices=BUILDING, blank=False)
+    building2=models.CharField(max_length=255, choices=BUILDING, blank=False)
+    building3=models.CharField(max_length=255, choices=BUILDING, blank=True)
+    building4=models.CharField(max_length=255, choices=BUILDING, blank=True)
+    building5=models.CharField(max_length=255, choices=BUILDING, blank=True)
 
     def __str__(self):
         return '%s' % self.building1
