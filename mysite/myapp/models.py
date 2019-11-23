@@ -3,18 +3,16 @@ from django.db import models
 from django.utils import timezone
 
 class Post(models.Model):
+    """
+    It is a model that stores infromation of advice posts made by students
+
+    """
     user_name = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     likes= models.IntegerField(default=0)
-    #likes= models.ManyToManyField('self',related_name = 'likes', blank = 'true')
-    #FRESHMAN = 'FR'
-    #SOPHOMORE = 'SP'
-    #JUNIOR = 'JR'
-    #SENIOR = 'SR'
-    #GRADUATE = 'GR'
     YEAR_IN_SCHOOL_CHOICES = [
         ('Freshman', 'Freshman'),
         ('Sophomore', 'Sophomore'),
@@ -33,6 +31,7 @@ class Post(models.Model):
 
 
     def publish(self):
+        """Makes the posts live on the site."""
         self.published_date = timezone.now()
         self.save()
 
@@ -46,8 +45,11 @@ class Preference(models.Model):
     value= models.IntegerField()
 
 
-class Rate(models.Model):
+    class Rate(models.Model):
+        """
+        It is a model that stores infromation needed to rate a class by a student
 
+        """
         CLASS_RATED =[('EECS101','EECS 101'),
                         ('EECS168','EECS 168'),
                         ('EECS140','EECS 140'),

@@ -1,8 +1,6 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-#from .maps_form import mapsForm
-#from .rate_forms import RateForm
 from .models import Post
 from .advice_form import PostForm
 from django.utils import timezone
@@ -17,15 +15,12 @@ from django.db.models import Count
 def index(request):
     """
     Directs to index.html page
-
     **Template:**
 
     :template:`myapp/index.html`
     """
     return render_to_response('index.html')
 
-#def maps(request):
-#    return render_to_response('maps.html')
 
 def ratings_landing_page(request):
     """
@@ -36,7 +31,6 @@ def ratings_landing_page(request):
     :template:`myapp/ratings_landing_page.html`
     """
     return render_to_response('ratings_landing_page.html')
-    #return render_to_response('index1.html')
 
 
 def ratings_view(request):
@@ -53,7 +47,14 @@ def ratings_view(request):
 def ratings_view_class(request):
         """
         Directs to view a posted video
+        
+        **Context**
+
+        ``rates``
+        An instance of :model:`myapp.Rates`.
+
         **Template:**
+
         :template:`myapp/view_video.html`
         """
         theClassRated= request.GET.get('classChoice', None);
