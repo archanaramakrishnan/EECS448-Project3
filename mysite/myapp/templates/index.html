@@ -22,10 +22,16 @@
 
   <!-- Custom CSS -->
   <link href="{% static 'css/stylish-portfolio.min.css' %}" rel="stylesheet">
+  <script src="{% static 'for_timer/js/refreshTime.js' %}"></script>
+  <style>
+        #countdown{
+      display:none;
+      }
+  </style>
 
 </head>
 
-<body id="page-top">
+<body id="page-top" >
 
   <!-- Navigation -->
   <a class="menu-toggle rounded" href="#">
@@ -56,37 +62,19 @@
         <em>Welcome Freshman Jayhawks! <br><br>
         if you are ready click on "Get Started"</em>
       </h3>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#portfolio">Get started</a>
-      <script>
-      function startTimer(duration, display) {
-          var start = Date.now(),len,minutes, seconds;
-          function timer() {
-              len = (((Date.now() - start) / 1000) | 0) ;
-              minutes = (len / 60) | 0;
-              seconds = (len % 60) | 0;
-              minutes = minutes < 10 ? "0" + minutes : minutes;
-              seconds = seconds < 10 ? "0" + seconds : seconds;
-              localStorage.setItem("min", "minutes");
-              localStorage.setItem("sec", "minutes");
-              localStorage.setItem("min", "minutes")
-              display.textContent = minutes + ":" + seconds;
-          };
-          timer();
-          setInterval(timer, 1000);
-      }
-      window.onload = function () {
-         var twentyMin = 60 * 20,
-         display = document.querySelector('#time');
-         startTimer(twentyMin, display);
-      };
-      </script>
+
+      <a class="btn btn-primary btn-xl js-scroll-trigger" id="starttimer" href="#portfolio" >Get started</a>
+
+      <div>
+
+
+          <br>
       <h2 class="section-heading text-uppercase">
-      <p>You have been active this long:</p>
-        <div class="row justify-content-center border rounded-pill">
-        <span id="time"></span>
-        <div>
+            <br>
+        <div id= "countdown"></div>
+      </div>
       </h2>
-    </div>
+
     <div class="overlay"></div>
   </header>
 
@@ -169,6 +157,7 @@
   </a>
 
   {% static 'vendor/fontawesome-free/css/all.min.css' %}
+
   <!-- Bootstrap core JavaScript -->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -178,6 +167,7 @@
 
   <!-- Custom scripts for this template -->
   <script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
+  <script src="{% static 'for_timer/js/refreshTime.js' %}"></script>
 
 </body>
 
