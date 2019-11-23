@@ -1,6 +1,6 @@
 
 var start = document.getElementById("starttimer");
-var dis = document.getElementById("countdown");
+var display = document.getElementById("countdown");
 var previousTime;
 //var timerLength = 30;
 var timeoutID;
@@ -12,15 +12,17 @@ if(localStorage.getItem('myTime')){
 
 start.onclick = function () {
     localStorage.setItem('myTime', ((new Date()).getTime()));
-    if (timeoutID != undefined) window.clearTimeout(timeoutID);
     setInterval(Update, 1000);
     Update();
 }
 
 function Update() {
-
     previousTime = localStorage.getItem('myTime');
-    var timeStart = (new Date()- previousTime)/1000; //this will give
-    dis.innerHTML =   timeStart + " seconds";
+    var timeStart = (new Date()- previousTime)/1000;
+    var hours = parseInt(timeStart / 3600 );
+    var minutes = parseInt((timeStart - (hours * 3600)) / 60 );
+    var seconds = Math.floor((timeStart - ((hours * 3600) + (minutes * 60))));
+    var finalResult = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
+    display.innerHTML =   finalResult;
     timeoutID = window.setTimeout(Update, 100);
 }
