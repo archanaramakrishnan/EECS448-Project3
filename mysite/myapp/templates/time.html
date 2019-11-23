@@ -57,6 +57,14 @@
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Services</h2>
           <h3 class="section-subheading text-muted">This options reminds you to take breaks depending on how long you have been active on the website</h3>
+          <h4>
+
+         <h2 class="section-heading text-uppercase">
+         <p>You have been active this long:</p>
+           <div class="row justify-content-center border rounded-pill">
+           <span id="time"></span>
+           <div>
+         </h2>
         </div>
       </div>
     </div>
@@ -73,7 +81,7 @@
       </div>
       <div class="row">
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+          <a class="portfolio-link" href="https://studenthealth.ku.edu/support-therapy-dog-programs">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -86,7 +94,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+          <a class="portfolio-link" href="https://youtu.be/9uKVI6_Fm4g">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -99,7 +107,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+          <a class="portfolio-link" href="https://hunger.ku.edu/campus-cupboard">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -112,7 +120,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+          <a class="portfolio-link" href="https://recreation.ku.edu/campus-activity-routes">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -125,7 +133,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+          <a class="portfolio-link" href="#portfolioModal5">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -138,7 +146,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+          <a class="portfolio-link" href="#portfolioModal6">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -213,9 +221,12 @@
   <!-- Contact form JavaScript -->
   <script src="{% static 'for_timer/js/jqBootstrapValidation.js' %}"></script>
   <script src="{% static 'for_timer/js/contact_me.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="{% static 'for_timer/js/refreshTime.js' %}" ></script>
 
   <!-- Custom scripts for this template -->
   <script src="{% static 'for_timer/js/agency.min.js' %}"></script>
+
 
 </body>
 

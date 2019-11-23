@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from .models import Post
 from .advice_form import PostForm
 from django.utils import timezone
+from datetime import datetime
 from django.shortcuts import redirect
 from .maps_form import mapsForm
 from .models import Rate
@@ -154,7 +155,12 @@ def time(request):
 
     :template:`myapp/time.html`
     """
-    return render_to_response('time.html')
+
+    now = datetime.now()
+    formatedDate = now.strftime("%H:%M:%S")
+    return render(request, 'time.html', {
+        'myDate': now
+    })
 
 def rating_form(request):
     """

@@ -57,6 +57,35 @@
         if you are ready click on "Get Started"</em>
       </h3>
       <a class="btn btn-primary btn-xl js-scroll-trigger" href="#portfolio">Get started</a>
+      <script>
+      function startTimer(duration, display) {
+          var start = Date.now(),len,minutes, seconds;
+          function timer() {
+              len = (((Date.now() - start) / 1000) | 0) ;
+              minutes = (len / 60) | 0;
+              seconds = (len % 60) | 0;
+              minutes = minutes < 10 ? "0" + minutes : minutes;
+              seconds = seconds < 10 ? "0" + seconds : seconds;
+              localStorage.setItem("min", "minutes");
+              localStorage.setItem("sec", "minutes");
+              localStorage.setItem("min", "minutes")
+              display.textContent = minutes + ":" + seconds;
+          };
+          timer();
+          setInterval(timer, 1000);
+      }
+      window.onload = function () {
+         var twentyMin = 60 * 20,
+         display = document.querySelector('#time');
+         startTimer(twentyMin, display);
+      };
+      </script>
+      <h2 class="section-heading text-uppercase">
+      <p>You have been active this long:</p>
+        <div class="row justify-content-center border rounded-pill">
+        <span id="time"></span>
+        <div>
+      </h2>
     </div>
     <div class="overlay"></div>
   </header>
@@ -104,7 +133,7 @@
           </a>
         </div>
         <div class="col-lg-6">
-          <a class="portfolio-item" href="time.html">
+          <a class="portfolio-item" href="time.html" >
             <span class="caption">
               <span class="caption-content">
                 <h2>Study Time Manager</h2>
