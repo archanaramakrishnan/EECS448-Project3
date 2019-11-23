@@ -48,7 +48,7 @@ def ratings_view(request):
 def ratings_view_class(request):
         """
         Directs to view a posted video
-        
+
         **Context**
 
         ``rates``
@@ -75,6 +75,11 @@ def ratings_view_class(request):
 def maps(request):
     """
     Directs to form for the maps page
+
+    **Context**
+
+    ``form``
+    An instance of :model:`myapp.Maps`.
 
     **Template:**
 
@@ -126,6 +131,11 @@ def view_video(request):
 def view_advice(request):
     """
     Directs to view a posted video
+
+    **Context**
+
+    ``posts``
+    An instance of :model:`myapp.Post`.
 
     **Template:**
 
@@ -183,19 +193,8 @@ def rating_form(request):
             class_comments=form.cleaned_data['class_comments']
             class_overall=form.cleaned_data['class_overall']
             print(class_rated,class_difficulty_level,class_hours_spent,rater_grade,class_exams_num,class_hw,class_comments,class_overall);
-            #it will go to view rating if successful
-            #return HttpResponseRedirect('/ratings_view.html/')
             post.save()
             return HttpResponseRedirect("ratings_view_class.html")
     else:
         form = RateForm()
     return render(request, 'rating_form.html', {'form': form})
-
-def test_ratings(request):
-    """
-    Directs to view a posted video
-    **Template:**
-    :template:`myapp/view_video.html`
-    """
-    #rates = Rate.objects.all();
-    #return render(request, 'test_ratings.html', {'rates': rates})
