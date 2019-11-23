@@ -194,7 +194,7 @@ def rating_form(request):
             class_overall=form.cleaned_data['class_overall']
             print(class_rated,class_difficulty_level,class_hours_spent,rater_grade,class_exams_num,class_hw,class_comments,class_overall);
             post.save()
-            return HttpResponseRedirect("ratings_view_class.html")
+            return HttpResponseRedirect("ratings_view_class.html?classChoice=all")
     else:
         form = RateForm()
     return render(request, 'rating_form.html', {'form': form})

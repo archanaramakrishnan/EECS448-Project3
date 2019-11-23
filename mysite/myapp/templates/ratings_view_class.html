@@ -70,7 +70,7 @@
 
         <form id="searchform"  method="get" action="" accept-charset="utf-8">
                 <!--Drop Down select to filter the classes-->
-                Select the class to view it's ratings:
+                Use this to filter the classes you want to see
                 <br>
                   <select id="classChoice" name="classChoice">
                   <option value="all">ALL</option>
@@ -78,8 +78,7 @@
                   <option value="{{ rate.class_rated }}">{{ rate.class_rated }}</option>
                   {% endfor %}
                   </select>
-                  <br><br>
-                <input type="submit" value="OK" onclick="location.href='ratings_view_class.html';">
+                <input type="submit" value="FILTER" onclick="location.href='ratings_view_class.html';">
         </form>
           <br><br>
         <!-- Blog Post -->
@@ -88,7 +87,7 @@
 
         {% for rate in rates %}
 
-          <img class="card-img-top" src="{% static 'for_forms/post1.jpg' %}" alt="Card image cap">
+          <img class="card-img-top" src="{% static 'for_forms/post4.jpg' %}" height="70" alt="Card image cap">
           <div class="card-body">
             <h2 class="card-title">{{ rate.class_rated }}</h2>
 
@@ -116,13 +115,6 @@
       <div class="col-md-4">
 
 
-        <!-- Side Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Thanks for rating and viewing</h5>
-          <div class="card-body">
-            We are able to complile all the rating forms that upperclassmen filled.
-          </div>
-        </div>
 
       </div>
 
