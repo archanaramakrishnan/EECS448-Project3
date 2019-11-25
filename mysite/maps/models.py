@@ -1,16 +1,6 @@
 from django.db import models
 from django.forms import ModelForm
 from haversine import haversine
-"""
-BUILDING = [
-    ('budig', 'Budig Hall'),
-    ('wescoe', 'Wescoe Hall'),
-    ('snow', 'Snow Hall'),
-    ('leep', 'LEEP2'),
-    ('learned', 'Learned Hall'),
-    ('eaton', 'Eaton Hall'),
-]
-"""
 
 class Building(models.Model):
     name = models.CharField(max_length=100)
@@ -27,7 +17,6 @@ class BuildingForm(ModelForm):
 
 BUILDING=list([building.name, building.name] for building in Building.objects.all())
 
-# Create your models here.
 class Map(models.Model):
     building1=models.CharField(max_length=255, choices=BUILDING, blank=False)
     building2=models.CharField(max_length=255, choices=BUILDING, blank=False)
