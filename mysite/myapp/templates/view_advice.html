@@ -36,10 +36,23 @@
                   <h2><a href="">{{ post.user_name }}</a></h2>
                   <h4><a href="">{{ post.year_in_school }}</a></h4>
                   <h3><a href="">{{ post.title }}</a></h3>
+                  <h3><a href="">{{ like_count }}</a></h3>
                   <p>{{ post.text|linebreaksbr }}</p>
-                  <button>Like</button>
+                  <div>
+                    <form action = "#" method="GET" >
+                      <input type="submit" class="btn" value="Click" name="mybtn"/>
+                      <!--<button type='submit' name = "mybtn" >Click me: 0</button>  -->
+                    </form>
+                  </div>
+                  <!--<form action= "#" method="get">
+                    <input type="submit" class="btn" value="Click" name="mybtn">
+                  </form>-->
+                    <!--<input type="submit" class="btn" value="Click" name="mybtn">-->
+                    {{ post.like_count }}
+                    {{ like_count }}
               </div>
           {% endfor %}
+
 
         </div>
     </div>

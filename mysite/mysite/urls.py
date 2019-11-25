@@ -28,6 +28,8 @@ urlpatterns = [
     url(r'^view_video.html', v.view_video),
      url(r'^upload_video.html', v.upload_video),
      url(r'^view_advice.html', v.view_advice, name='post_list'),
+     url(r'^view_advice_likes.html', v.add_likes, name='likes'),
+
      url(r'^post_new.html', v.post_new, name='post_new'),
     url(r'^maps.html', v.maps),
     url(r'^time.html', v.time, name = "time"),
@@ -37,10 +39,13 @@ urlpatterns = [
     url(r'^test_ratings.html', v.test_ratings),
     url(r'^ratings_view.html', v.ratings_view),
     url(r'^ratings_view_class.html', v.ratings_view_class),
-    
+
     #url(r'^(?P<postid>\d+)/preference/(?P<userpreference>\d+)/$', postpreference, name='postpreference'),
+    #url(r'^request_page.html',v.request_page, name='request'),
+    #url(r'^request_page.html',v.request_page, name='request'),
     path('', v.maps),
     path('', v.rating_form),
+    path('', v.add_likes),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
