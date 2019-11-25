@@ -19,10 +19,13 @@ start.onclick = function () {
 }
 
 function Update() {
-    previousTime = localStorage.getItem('myTime');
-    var timeStart = (new Date()- previousTime)/1000;
-    if (parseInt(timeStart) >= 30) {
-      reminder.innerHTML = "It has been 30 seconds";
+      previousTime = localStorage.getItem('myTime');
+      var timeStart = (new Date()- previousTime)/1000;
+      if ((parseInt(timeStart) % 600 == 0) &&  (parseInt(timeStart) != 0)) {
+      var num = parseInt(timeStart);
+      var toMin = parseInt(timeStart)/60;
+      alert("You have been active for " + toMin + " minutes");
+      //reminder.innerHTML = "It has been 30 seconds";
    }
     var hours = parseInt(timeStart / 3600 );
     var minutes = parseInt((timeStart - (hours * 3600)) / 60 );
@@ -30,11 +33,5 @@ function Update() {
     var finalResult = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
     display.innerHTML = finalResult;
     setInterval(Update, 1000);
-
   //  setTimeout(remind(10), 10000);
 }
-
-//function remind(msg1) {
-  //  var msg = "This is a reminder after " + msg1 +" Secs";
-  //  reminder.innerHTML = msg;
-//}
