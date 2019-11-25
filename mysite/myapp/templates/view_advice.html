@@ -1,79 +1,61 @@
 {% load static %}
 <html>
     <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
         <title>Advice Post</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'for_advice/blog.css' %}">
-        {% load staticfiles %}
         <style>
 
-        .menu-open
-        {
-          padding: 10px 10px;
-          text-align: center;
-          display: inline-block;
-          font-size: 13px;
-          margin: 4px 2px;
-          background-color: white;
-          color : black;
-        }
-        .sidenav {
-          height: 100%;
-          width: 0;
-          position: fixed;
-          z-index: 1;
-          top: 0;
-          left: 0;
-          background-color: #111;
-          overflow-x: hidden;
-          transition: 0.5s;
-          padding-top: 60px;
-        }
-
-        .sidenav a {
-          padding: 8px 8px 8px 32px;
-          text-decoration: none;
-          font-size: 21px;
-          color: #818181;
-          display: block;
-          transition: 0.3s;
-        }
-
-        .sidenav a:hover {
-          color: #f1f1f1;
-        }
-
-        .sidenav .closebtn {
+        .top-menu > .glyphicon:last-child {
           position: absolute;
-          top: 0;
-          right: 25px;
-          font-size: 36px;
-          margin-left: 50px;
-        }
-
-        @media screen and (max-height: 450px) {
-          .sidenav {padding-top: 15px;}
-          .sidenav a {font-size: 18px;}
-        }
+          top: 2px;
+          left: 2px;
+      }
         </style>
          <link href="{% static 'for_forms/rating_form.css' %}" rel="stylesheet"></link>
-        </head>
+         <!-- Bootstrap Core CSS -->
+
+
+         <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+         <!-- EDIT -->
+         <link href="{% static 'css/stylish-portfolio.min.css' %}" rel="stylesheet">
     </head>
-    <body>
-      <div id="mySidenav" class="sidenav">
-        <a class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="/">Home</a>
-        <a href="maps.html">Run to My Classes</a>
-        <a href="ratings_landing_page.html">Rate My Classes</a>
-        <a href="advice.html">Advice</a>
-        <a href="time.html">Study Time Manager</a>
-      </div>
-      <button class="menu-open"onclick="openNav()">Menu</button>
+    <body id = "page-top">
+      <a class="menu-toggle rounded" href="#">
+        <i class="fas fa-bars"></i>
+      </a>
+      <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a class="js-scroll-trigger" href="#page-top">Menu</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/">Homepage</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="maps.html">Run to My Classes</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="time.html">Time Management</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="ratings_landing_page.html">Rate My Classes</a>
+          </li>
+        </ul>
+      </nav>
 
       <header class="masthead" style="background-image: url({% static 'for_advice/home-bg.jpg' %})">
         <div class="overlay"></div>
-        <div><a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a></div>
+        <div><a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>
+        </a></div>
 
         <div class="container">
           <div class="row">
@@ -143,14 +125,17 @@
     </div>
   </div>
 </footer>
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
+  {% static 'vendor/fontawesome-free/css/all.min.css' %}
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-</script>
+<script src="{% static 'for_timer/vendor/jquery/jquery.min.js' %}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
+<!-- Contact form JavaScript -->
+
+
+<!-- Custom scripts for this template -->
+<script src="{% static 'for_timer/js/agency.min.js' %}"></script>
+
     </body>
 </html>
