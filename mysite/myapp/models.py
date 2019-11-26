@@ -8,8 +8,8 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    like_count= models.IntegerField(default=0)
-    counter= models.IntegerField(default=1)
+    #like_count= models.IntegerField(default=0)
+    #counter= models.IntegerField(default=1)
     #likes= models.ManyToManyField('self',related_name = 'likes', blank = 'true')
     #FRESHMAN = 'FR'
     #SOPHOMORE = 'SP'
@@ -41,7 +41,7 @@ class Post(models.Model):
         return self.title
 
 
-
+"""
 class Like(models.Model):
     post= models.ForeignKey(Post, on_delete=models.DO_NOTHING,)
     value= models.IntegerField()
@@ -49,7 +49,7 @@ class Like(models.Model):
 
     #class Meta:
        #unique_together = ("post", "value")
-
+"""
 
 class Rate(models.Model):
 

@@ -10,7 +10,7 @@
 
       <header class="masthead" style="background-image: url({% static 'for_advice/home-bg.jpg' %})">
         <div class="overlay"></div>
-        <div><a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a></div>
+        <span><div><a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">HI there</span></a></div></span>
 
         <div class="container">
           <div class="row">
@@ -33,23 +33,21 @@
                   <div class="date">
                       <p>published: {{ post.published_date }}</p>
                   </div>
-                  <h2><a href="">{{ post.user_name }}</a></h2>
-                  <h4><a href="">{{ post.year_in_school }}</a></h4>
-                  <h3><a href="">{{ post.title }}</a></h3>
-                  <h3><a href="">{{ like_count }}</a></h3>
-                  <p>{{ post.text|linebreaksbr }}</p>
+                      <h2>{{ post.user_name }}</h2>
+                      <h4>{{ post.year_in_school }}</h4>
+                      <h3>{{ post.title }}</h3>
+                      <h3>{{ like_count }}</h3>
+                      <p>{{ post.text|linebreaksbr }}</p>
                   <div>
-                    <form action = "#" method="GET" >
+                    <!--<form action = "#" method="GET" >
                       <input type="submit" class="btn" value="Click" name="mybtn"/>
-                      <!--<button type='submit' name = "mybtn" >Click me: 0</button>  -->
-                    </form>
+                      <button type='submit' name = "mybtn" >Click me: 0</button>
+                    </form>-->
                   </div>
                   <!--<form action= "#" method="get">
                     <input type="submit" class="btn" value="Click" name="mybtn">
                   </form>-->
                     <!--<input type="submit" class="btn" value="Click" name="mybtn">-->
-                    {{ post.like_count }}
-                    {{ like_count }}
               </div>
           {% endfor %}
 

@@ -145,6 +145,7 @@ def view_advice(request):
 
     return render(request, 'view_advice.html',{'posts':posts})
 
+"""
 def add_likes(request):
   if(request.GET.get('mybtn')):
     Postss = get_object_or_404(Post, created_by=request.user_name)
@@ -157,6 +158,7 @@ def add_likes(request):
             #'like_count': likes+1,
     }
     return render(request, 'view_advice.html', context=context)
+"""
     #count = int(Post.like_count)
     #Post.like_count = p.like_set.all().count()
     #count = count + 1
@@ -179,14 +181,14 @@ def post_new(request):
     else:
         form = PostForm()
     return render(request, 'post_new.html', {'form': form})
-
+"""
 def no_of_likes(request):
     p = Posts.objects.get(...)
     number_of_likes = p.like_set.all().count()
 
 def like(request, picture_id):
     new_like, created = Like.objects.get_or_create(picture_id=picture_id)
-
+"""
 
 def time(request):
     """

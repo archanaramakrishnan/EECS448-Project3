@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^view_video.html', v.view_video),
      url(r'^upload_video.html', v.upload_video),
      url(r'^view_advice.html', v.view_advice, name='post_list'),
-     url(r'^view_advice_likes.html', v.add_likes, name='likes'),
+     #url(r'^view_advice_likes.html', v.add_likes, name='likes'),
 
      url(r'^post_new.html', v.post_new, name='post_new'),
     url(r'^maps.html', v.maps),
@@ -45,7 +45,7 @@ urlpatterns = [
     #url(r'^request_page.html',v.request_page, name='request'),
     path('', v.maps),
     path('', v.rating_form),
-    path('', v.add_likes),
+    #path('', v.add_likes),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
