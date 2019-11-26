@@ -138,7 +138,7 @@
 
       <header class="masthead" style="background-image: url({% static 'for_advice/home-bg.jpg' %})">
         <div class="overlay"></div>
-        <span><div><a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">Add</span></a></div></span>
+        <span><div><a href="post_new.html#addPost" class="top-menu"><span class="glyphicon glyphicon-plus">Add</span></a></div></span>
 
         <div class="container">
           <div class="row">
@@ -161,11 +161,9 @@
                   <div class="date">
                       <p>published: {{ post.published_date }}</p>
                   </div>
-                  <h2><a href="">{{ post.user_name }}</a></h2>
-                  <h4><a href="">{{ post.year_in_school }}</a></h4>
-                  <h3><a href="">{{ post.title }}</a></h3>
+                  <h2>{{ post.title }}</h2>
+                  <h4>{{ post.user_name }} | {{ post.year_in_school }}</h4>
                   <p>{{ post.text|linebreaksbr }}</p>
-                  <button type="submit">Like</button>
               </div>
           {% endfor %}
 
