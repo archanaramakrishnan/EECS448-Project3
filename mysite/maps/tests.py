@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 # Create your tests here.
-from maps.models import Building
+from maps.models import Building, Map
 
 class BuildingTestCase(TestCase):
     
@@ -9,6 +9,21 @@ class BuildingTestCase(TestCase):
         Building.objects.create(name="Budig Hall", latitude="38.958312", longitude="-95.249133")
         Building.objects.create(name="Wescoe Hall", latitude="38.957712", longitude="-95.247629")
         Building.objects.create(name="LEEP2", latitude="38.957726", longitude="-95.254068")
+
+        Map.objects.create(building1="Budig Hall", building2="Wescoe Hall", building3="Learned Hall", building4="Fraser Hall", building5="LEEP2")
+
+    def test_form_inputs(self):
+        """
+        Method `__str__` should be equal to field `building1`
+        """
+        print("\n")
+        f1 = Map.objects.get(building1="Budig Hall")
+        self.assertEqual(str(f1), f1.building1)
+        self.assertEqual("Wescoe Hall", f1.building2)
+        self.assertEqual("Learned Hall", f1.building3)
+        self.assertEqual("Fraser Hall", f1.building4)
+        self.assertEqual("LEEP2", f1.building5)
+        print("PASSED: Map object created with Budig, Wescoe, Learned and Fraser halls as the input fields")
 
     def test_created_buildings(self):
         """
