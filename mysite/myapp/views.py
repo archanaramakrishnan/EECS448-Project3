@@ -34,17 +34,6 @@ def ratings_landing_page(request):
     return render_to_response('ratings_landing_page.html')
 
 
-def ratings_view(request):
-    """
-    Directs to the page to where you can choose from classes
-
-    **Template:**
-
-    :template:`myapp/ratings_view.html`
-    """
-    return render_to_response('ratings_view.html')
-
-
 def ratings_view_class(request):
         """
         Directs to view a posted video
@@ -71,32 +60,6 @@ def ratings_view_class(request):
                 rates = Rate.objects.filter(class_rated=theClassRated)
                 context.update({'rates': rates,'choiceToFilter': choiceToFilter})
         return render(request, 'ratings_view_class.html', context)
-
-def maps(request):
-    """
-    Directs to form for the maps page
-
-    **Context**
-
-    ``form``
-    An instance of :model:`myapp.Maps`.
-
-    **Template:**
-
-    :template:`myapp/maps_form.html`
-    """
-    if request.method == "POST":
-        form = mapsForm(request.POST)
-        if form.is_valid():
-            building1=form.cleaned_data['building1']
-            building2=form.cleaned_data['building2']
-            building3=form.cleaned_data['building3']
-            building4=form.cleaned_data['building4']
-
-            print(building1, building2, building3, building4)
-
-    form = mapsForm()
-    return render(request, 'maps_form.html', {'form':form})
 
 def advice(request):
     """
@@ -152,25 +115,12 @@ def post_new(request):
             #post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('view_advice.html')
+            return redirect('view_advice.html#advice')
     else:
         form = PostForm()
     return render(request, 'post_new.html', {'form': form})
 
-def time(request):
-    """
-    Directs to time management homepage
 
-    **Template:**
-
-    :template:`myapp/time.html`
-    """
-
-    now = datetime.now()
-    formatedDate = now.strftime("%H:%M:%S")
-    return render(request, 'time.html', {
-        'myDate': now
-    })
 
 def rating_form(request):
     """
