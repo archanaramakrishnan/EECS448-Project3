@@ -1,14 +1,12 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-#from .maps_form import mapsForm
-#from .rate_forms import RateForm
 from .models import Post
 from .advice_form import PostForm
 from django.utils import timezone
 from datetime import datetime
 from django.shortcuts import redirect
-#from .maps_form import mapsForm
+from .maps_form import mapsForm
 from .models import Rate
 from .rate_forms import RateForm
 from django.db.models import Count
@@ -18,15 +16,24 @@ from django.db.models import Count
 def index(request):
     """
     Directs to index.html page
-
     **Template:**
 
     :template:`myapp/index.html`
     """
     return render_to_response('index.html')
 
-#def maps(request):
-#    return render_to_response('maps.html')
+def time(request):
+    """
+    Directs to time management homepage
+    **Template:**
+    :template:`myapp/time.html`
+    """
+
+    now = datetime.now()
+    formatedDate = now.strftime("%H:%M:%S")
+    return render(request, 'time.html', {
+        'myDate': now
+    })
 
 def ratings_landing_page(request):
     """
@@ -37,24 +44,19 @@ def ratings_landing_page(request):
     :template:`myapp/ratings_landing_page.html`
     """
     return render_to_response('ratings_landing_page.html')
-    #return render_to_response('index1.html')
-
-
-def ratings_view(request):
-    """
-    Directs to the page to where you can choose from classes
-
-    **Template:**
-
-    :template:`myapp/ratings_view.html`
-    """
-    return render_to_response('ratings_view.html')
 
 
 def ratings_view_class(request):
         """
         Directs to view a posted video
+
+        **Context**
+
+        ``rates``
+        An instance of :model:`myapp.Rates`.
+
         **Template:**
+
         :template:`myapp/view_video.html`
         """
         theClassRated= request.GET.get('classChoice', None);
@@ -71,42 +73,6 @@ def ratings_view_class(request):
                 context.update({'rates': rates,'choiceToFilter': choiceToFilter})
         return render(request, 'ratings_view_class.html', context)
 
-def maps(request):
-    """
-    Directs to form for the maps page
-
-    **Template:**
-
-    :template:`myapp/maps_form.html`
-    """
-    if request.method == "POST":
-        form = mapsForm(request.POST)
-        if form.is_valid():
-            building1=form.cleaned_data['building1']
-            building2=form.cleaned_data['building2']
-            building3=form.cleaned_data['building3']
-            building4=form.cleaned_data['building4']
-
-            print(building1, building2, building3, building4)
-
-    form = mapsForm()
-    #return render(request, 'maps_form.html', {'form':form})
-"""
-def distance(request):
-    if request.method=="POST":
-        form = MapForm(request.POST)
-        if form.is_valid():
-            #return an object that has not been saved in the database yet
-            item=form.save(commit=False)
-
-            #save the object
-            item.save()
-        else:
-            #unbound form with no data
-            form=MapForm
-        #return render(request, 'maps_form.html', {'form':form})
-    return render(request, 'maps_form.html', {'form':form})
-"""
 def advice(request):
     """
     Directs to advice homepage
@@ -141,6 +107,11 @@ def view_advice(request):
     """
     Directs to view a posted video
 
+    **Context**
+
+    ``posts``
+    An instance of :model:`myapp.Post`.
+
     **Template:**
 
     :template:`myapp/view_video.html`
@@ -156,25 +127,12 @@ def post_new(request):
             #post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('view_advice.html')
+            return redirect('view_advice.html#advice')
     else:
         form = PostForm()
     return render(request, 'post_new.html', {'form': form})
 
-def time(request):
-    """
-    Directs to time management homepage
 
-    **Template:**
-
-    :template:`myapp/time.html`
-    """
-
-    now = datetime.now()
-    formatedDate = now.strftime("%H:%M:%S")
-    return render(request, 'time.html', {
-        'myDate': now
-    })
 
 def rating_form(request):
     """
@@ -197,19 +155,8 @@ def rating_form(request):
             class_comments=form.cleaned_data['class_comments']
             class_overall=form.cleaned_data['class_overall']
             print(class_rated,class_difficulty_level,class_hours_spent,rater_grade,class_exams_num,class_hw,class_comments,class_overall);
-            #it will go to view rating if successful
-            #return HttpResponseRedirect('/ratings_view.html/')
             post.save()
-            return HttpResponseRedirect("ratings_view_class.html")
+            return HttpResponseRedirect("ratings_view_class.html?classChoice=all")
     else:
         form = RateForm()
     return render(request, 'rating_form.html', {'form': form})
-
-def test_ratings(request):
-    """
-    Directs to view a posted video
-    **Template:**
-    :template:`myapp/view_video.html`
-    """
-    #rates = Rate.objects.all();
-    #return render(request, 'test_ratings.html', {'rates': rates})

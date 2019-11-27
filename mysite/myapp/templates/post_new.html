@@ -2,11 +2,51 @@
 <html>
     <head>
         <title>Advice Post</title>
+        <!-- Bootstrap Core CSS -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="{% static 'css/stylish-portfolio.min.css' %}" rel="stylesheet">
+
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'for_advice/blog.css' %}">
+        <style>
+
+        .top-menu > .glyphicon:last-child {
+          position: absolute;
+          top: 2px;
+          left: 2px;
+      }
+        </style>
     </head>
-    <body>
+    <body id = "page-top">
+      <a class="menu-toggle rounded" href="#">
+        <i class="fas fa-bars"></i>
+      </a>
+      <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a class="js-scroll-trigger" href="#page-top">Menu</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/">Homepage</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="../../add/maps">Run to My Classes</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="time.html">Time Management</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="ratings_landing_page.html">Rate My Classes</a>
+          </li>
+        </ul>
+      </nav>
 
       <header class="masthead" style="background-image: url({% static 'for_advice/home-bg.jpg' %})">
         <div class="overlay"></div>
@@ -25,6 +65,7 @@
         </div>
       </header>
 
+<a name="addPost"></a>
         <div class="content container">
     <div class="row">
         <div class="col-md-8">
@@ -72,5 +113,22 @@
     </div>
   </div>
 </footer>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'for_timer/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'for_timer/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'for_timer/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
+  <!-- Contact form JavaScript -->
+  <script src="{% static 'for_timer/js/jqBootstrapValidation.js' %}"></script>
+  <script src="{% static 'for_timer/js/contact_me.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="{% static 'for_timer/js/refreshTime.js' %}" ></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'for_timer/js/agency.min.js' %}"></script>
     </body>
 </html>

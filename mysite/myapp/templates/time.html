@@ -1,5 +1,5 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 
 <head>
@@ -13,6 +13,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'for_timer/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
   <link href="{% static 'for_timer/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -22,29 +23,50 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
   <!-- Custom styles for this template -->
+  <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
   <link href="{% static 'for_timer/css/agency.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/stylish-portfolio.min.css' %}" rel="stylesheet">
+  <script src="{% static 'for_timer/js/refreshTime.js' %}"></script>
 
 </head>
+<style>
+/* Side Menu */
 
+</style>
 <body id="page-top">
-
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">Menu</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/">Homepage</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="../../add/maps">Run to My Classes</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="view_advice.html">Advice</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="ratings_landing_page.html">Rate My Classes</a>
+      </li>
+    </ul>
   </nav>
-
   <!-- Header -->
   <header class="masthead">
+
     <div class="container">
+        <a name="time"></a>
       <div class="intro-text">
-        <div class="intro-lead-in">Welcome To Your Study Time Manager!</div>
-        <div class="intro-heading text-uppercase">This is for you!</div>
+
+        <div class="intro-lead-in">Welcome To Your</div>
+
+        <div class="intro-heading text-uppercase">Time Manager</div>
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
       </div>
     </div>
@@ -55,28 +77,28 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Services</h2>
-          <h3 class="section-subheading text-muted">This options reminds you to take breaks depending on how long you have been active on the website</h3>
-          <h4>
+          <h3 class="section-subheading text-muted"> We will remind you to take breaks depending on how long you have been active on the website</h3>
 
-         <h2 class="section-heading text-uppercase">
-         <p>You have been active this long:</p>
-           <div class="row justify-content-center border rounded-pill">
-           <span id="time"></span>
-           <div>
-         </h2>
+
+          <div>
+          <h2 class="section-heading text-uppercase">
+          <br>
+          <p>You have been active this long:</p>
+            <div id= "countdown"></div>
+            <br>
+            <div id = "reminders"><div>
+          </div>
+          </h2>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Portfolio Grid -->
   <section class="bg-light page-section" id="portfolio">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Some ways you could take a break!</h2>
-
         </div>
       </div>
       <div class="row">
@@ -133,7 +155,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" href="#portfolioModal5">
+          <a class="portfolio-link" href="https://rockchalkcentral.ku.edu">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -142,11 +164,11 @@
             <img class="img-fluid" src="static/for_timer/img/walk.png" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>Meet your friends</h4>
+            <h4>Join Clubs</h4>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" href="#portfolioModal6">
+          <a class="portfolio-link" href="https://www.youtube.com/watch?v=GFnncBfmA44">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -217,7 +239,7 @@
 
   <!-- Plugin JavaScript -->
   <script src="{% static 'for_timer/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
-
+  <script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
   <!-- Contact form JavaScript -->
   <script src="{% static 'for_timer/js/jqBootstrapValidation.js' %}"></script>
   <script src="{% static 'for_timer/js/contact_me.js' %}"></script>
