@@ -22,6 +22,18 @@ def index(request):
     """
     return render_to_response('index.html')
 
+def time(request):
+    """
+    Directs to time management homepage
+    **Template:**
+    :template:`myapp/time.html`
+    """
+
+    now = datetime.now()
+    formatedDate = now.strftime("%H:%M:%S")
+    return render(request, 'time.html', {
+        'myDate': now
+    })
 
 def ratings_landing_page(request):
     """

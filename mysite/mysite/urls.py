@@ -31,6 +31,7 @@ urlpatterns = [
      url(r'^upload_video.html', v.upload_video),
      url(r'^view_advice.html', v.view_advice, name='post_list'),
      url(r'^post_new.html', v.post_new, name='post_new'),
+     url(r'^time.html', v.time, name = "time"),
     url(r'^ratings_landing_page.html', v.ratings_landing_page),
     url(r'^rating_form.html', v.rating_form),
     url(r'^ratings_view_class.html', v.ratings_view_class),
