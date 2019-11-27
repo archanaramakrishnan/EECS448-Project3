@@ -11,12 +11,15 @@ class BuildingTestCase(TestCase):
         Building.objects.create(name="LEEP2", latitude="38.957726", longitude="-95.254068")
 
         Map.objects.create(building1="Budig Hall", building2="Wescoe Hall", building3="Learned Hall", building4="Fraser Hall", building5="LEEP2")
+        Map.objects.create(building1="LEEP2", building2="Budig Hall")
+        Map.objects.create(building1="Learned Hall", building2="Budig Hall", building3="Wescoe Hall")
 
     def test_form_inputs(self):
         """
         Method `__str__` should be equal to field `building1`
         """
         print("\n")
+
         f1 = Map.objects.get(building1="Budig Hall")
         self.assertEqual(str(f1), f1.building1)
         self.assertEqual("Wescoe Hall", f1.building2)
@@ -24,6 +27,18 @@ class BuildingTestCase(TestCase):
         self.assertEqual("Fraser Hall", f1.building4)
         self.assertEqual("LEEP2", f1.building5)
         print("PASSED: Map object created with Budig, Wescoe, Learned and Fraser halls as the input fields")
+
+        f2 = Map.objects.get(building1="LEEP2")
+        self.assertEqual(str(f2), f2.building1)
+        self.assertEqual("Budig Hall", f2.building2)
+        print("PASSED: Map object created with LEEP2 and Budig halls as the input fields")
+
+        f3 = Map.objects.get(building1="Learned Hall")
+        self.assertEqual(str(f3), f3.building1)
+        self.assertEqual("Budig Hall", f3.building2)
+        self.assertEqual("Wescoe Hall", f3.building3)
+        print("PASSED: Map object created with Learned Hall, Budig halls and Wescoe Hall as the input fields")
+
 
     def test_created_buildings(self):
         """
