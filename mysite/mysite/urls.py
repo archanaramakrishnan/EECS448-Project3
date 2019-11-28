@@ -45,7 +45,10 @@ urlpatterns = [
     #url(r'^request_page.html',v.request_page, name='request'),
     path('', v.maps),
     path('', v.rating_form),
+    path('post_detail/<int:pk>/', v.post_detail, name='post_detail'),
+    #url(r'^post_detail/<int:pk>.html', v.post_detail, name='post_detail'),
     #path('', v.add_likes),
+    #url('', v.like_post, name = "like_post"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

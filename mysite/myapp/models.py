@@ -8,7 +8,7 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    #like_count= models.IntegerField(default=0)
+    like_count= models.IntegerField(default=0)
     #counter= models.IntegerField(default=1)
     #likes= models.ManyToManyField('self',related_name = 'likes', blank = 'true')
     #FRESHMAN = 'FR'

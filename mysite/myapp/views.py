@@ -12,6 +12,7 @@ from .maps_form import mapsForm
 from .models import Rate
 from .rate_forms import RateForm
 from django.db.models import Count, F
+from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
@@ -159,6 +160,28 @@ def add_likes(request):
     }
     return render(request, 'view_advice.html', context=context)
 """
+def add_likes(request):
+  if(request.GET.get('mybtn')):
+    Postss = Post.objects.get(title=request.title)
+    Postss.like_count += 1
+    Postss.save(update_fields=["like_count"])
+    #likes=Postss.like_count
+    print(Postss.like_count)
+    context={
+            'posts': posts,
+            #'like_count': likes+1,
+    }
+    return render(request, 'view_advice.html', context=context)
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.like_count += 1
+    post.save(update_fields=["like_count"])
+    context={
+            'post': post,
+            'post.like_count': post.like_count,
+    }
+    return render(request, 'post_detail.html', context=context)
     #count = int(Post.like_count)
     #Post.like_count = p.like_set.all().count()
     #count = count + 1
@@ -168,6 +191,11 @@ def add_likes(request):
     #post.save()
     #return
     #return render(request,'view_advice.html')
+
+def like_post(request):
+    post = get_object_or_404(Post, id = request.POST.get('post.id'))
+    return render(request, 'post_detail.html')
+
 
 def post_new(request):
     if request.method == "POST":

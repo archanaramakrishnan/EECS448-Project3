@@ -35,20 +35,27 @@
                   </div>
                       <h2>{{ post.user_name }}</h2>
                       <h4>{{ post.year_in_school }}</h4>
-                      <h3>{{ post.title }}</h3>
+                      <h2>{{ post.title }}</h2>
                       <h3>{{ like_count }}</h3>
                       <p>{{ post.text|linebreaksbr }}</p>
                   <div>
-                    <!--<form action = "#" method="GET" >
+                    <button onclick="window.location.href = '{% url 'post_detail' pk=post.pk %}';">Click here to Like!</button>
+
+                    <!--<h2><a href="{% url 'post_detail' pk=post.pk %}">Click here to like the post</a></h2>
+                    <form action = "#" method="GET" >
                       <input type="submit" class="btn" value="Click" name="mybtn"/>
                       <button type='submit' name = "mybtn" >Click me: 0</button>
                     </form>-->
+                    <!--<form action="{% url 'post_list' %}" method="get">
+                      <input type="submit" class="btn" value="Click" name="mybtn">
+                    </form>
                   </div>
-                  <!--<form action= "#" method="get">
+
                     <input type="submit" class="btn" value="Click" name="mybtn">
                   </form>-->
                     <!--<input type="submit" class="btn" value="Click" name="mybtn">-->
               </div>
+
           {% endfor %}
 
 
