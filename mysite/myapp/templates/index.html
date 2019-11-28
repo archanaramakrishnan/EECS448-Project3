@@ -19,9 +19,18 @@
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
   <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
-
   <!-- Custom CSS -->
   <link href="{% static 'css/stylish-portfolio.min.css' %}" rel="stylesheet">
+  <script src="{% static 'for_timer/js/refreshTime.js' %}"></script>
+  <style>
+        #countdown{
+      display:none;
+      }
+
+      #reminders{
+    display:none;
+    }
+  </style>
 
 </head>
 
@@ -40,10 +49,7 @@
         <a class="js-scroll-trigger" href="#page-top">Home</a>
       </li>
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#portfolio">Services</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#maps">KU Map</a>
+        <a class="js-scroll-trigger" href="#portfolio">Options</a>
       </li>
     </ul>
   </nav>
@@ -53,40 +59,22 @@
     <div class="container text-center my-auto">
       <h1 class="mb-1">Freshman Starter Kit</h1>
       <h3 class="mb-5">
-        <em>Welcome Freshman Jayhawks! <br><br>
-        if you are ready click on "Get Started"</em>
+        <em>Welcome Freshman Jayhawks! <br></em>
       </h3>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#portfolio">Get started</a>
-      <script>
-      function startTimer(duration, display) {
-          var start = Date.now(),len,minutes, seconds;
-          function timer() {
-              len = (((Date.now() - start) / 1000) | 0) ;
-              minutes = (len / 60) | 0;
-              seconds = (len % 60) | 0;
-              minutes = minutes < 10 ? "0" + minutes : minutes;
-              seconds = seconds < 10 ? "0" + seconds : seconds;
-              localStorage.setItem("min", "minutes");
-              localStorage.setItem("sec", "minutes");
-              localStorage.setItem("min", "minutes")
-              display.textContent = minutes + ":" + seconds;
-          };
-          timer();
-          setInterval(timer, 1000);
-      }
-      window.onload = function () {
-         var twentyMin = 60 * 20,
-         display = document.querySelector('#time');
-         startTimer(twentyMin, display);
-      };
-      </script>
+
+      <a class="btn btn-primary btn-xl js-scroll-trigger" id="starttimer" href="#portfolio" >Get started</a>
+
+      <div>
+
+
+          <br>
       <h2 class="section-heading text-uppercase">
-      <p>You have been active this long:</p>
-        <div class="row justify-content-center border rounded-pill">
-        <span id="time"></span>
-        <div>
+            <br>
+        <div id= "countdown"></div>
+      </div>
+      <div id = "reminders"><div>
       </h2>
-    </div>
+
     <div class="overlay"></div>
   </header>
 
@@ -99,7 +87,7 @@
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6">
-          <a class="portfolio-item" href="maps.html">
+          <a class="portfolio-item" href="../../add/maps">
             <span class="caption">
               <span class="caption-content">
                 <h2>Run To My Classes</h2>
@@ -115,14 +103,14 @@
             <span class="caption">
               <span class="caption-content">
                 <h2>Rate My Classes</h2>
-                <p class="mb-0">A platform to review and assess your classes to choose your best schedule</p>
+                <p class="mb-0">A platform to review and assess your EECS classes to choose your best schedule</p>
               </span>
             </span>
             <img class="img-fluid" src="static/img/portfolio-2.jpg" style="object-fit: contain;" alt="">
           </a>
         </div>
         <div class="col-lg-6">
-          <a class="portfolio-item" href="advice.html">
+          <a class="portfolio-item" href="view_advice.html">
             <span class="caption">
               <span class="caption-content">
                 <h2>Advice</h2>
@@ -133,11 +121,11 @@
           </a>
         </div>
         <div class="col-lg-6">
-          <a class="portfolio-item" href="time.html" >
+          <a class="portfolio-item" href="time.html#time" >
             <span class="caption">
               <span class="caption-content">
-                <h2>Study Time Manager</h2>
-                <p class="mb-0">A tool that let's you know when to study and when to take a break because college life is hard and we know it.</p>
+                <h2>Time Management</h2>
+                <p class="mb-0">A tool that prompts you to periodically take breaks and suggests stress relief activities</p>
               </span>
             </span>
             <img class="img-fluid" src="static/img/portfolio-4.jpg" alt="">
@@ -147,19 +135,11 @@
     </div>
   </section>
 
-  <!-- Map -->
-  <section id="maps" class="map">
-    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2522.2016887713385!2d-95.25275079311149!3d38.9573637545525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87bf6f32f3a8d673%3A0x53714e21ab238228!2sUniversity%20of%20Kansas!5e0!3m2!1sen!2sus!4v1572396283143!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-    <br />
-    <small>
-      <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2522.2016887713385!2d-95.25275079311149!3d38.9573637545525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87bf6f32f3a8d673%3A0x53714e21ab238228!2sUniversity%20of%20Kansas!5e0!3m2!1sen!2sus!4v1572396283143!5m2!1sen!2sus"></a>
-    </small>
-  </section>
 
   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">
-      <p class="text-muted small mb-0">Copyright &copy; Your Website 2019</p>
+      <p class="text-muted small mb-0">Copyright &copy; Freshman Starter Kit 2019</p>
     </div>
   </footer>
 
@@ -168,7 +148,7 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  {% static 'vendor/fontawesome-free/css/all.min.css' %}
+
   <!-- Bootstrap core JavaScript -->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -178,6 +158,7 @@
 
   <!-- Custom scripts for this template -->
   <script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
+  <script src="{% static 'for_timer/js/refreshTime.js' %}"></script>
 
 </body>
 

@@ -17,13 +17,15 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.urls import path
 from myapp import views as v
+from maps import views as map_v
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     url(r'^$', v.index),
-
+    url(r'^add/maps', map_v.add_map),
+    url(r'^maps/(?P<id>\d+)/$', map_v.distance_output),
     url(r'^advice.html', v.advice),
     url(r'^view_video.html', v.view_video),
      url(r'^upload_video.html', v.upload_video),
@@ -31,19 +33,10 @@ urlpatterns = [
      #url(r'^view_advice_likes.html', v.add_likes, name='likes'),
 
      url(r'^post_new.html', v.post_new, name='post_new'),
-    url(r'^maps.html', v.maps),
-    url(r'^time.html', v.time, name = "time"),
+     url(r'^time.html', v.time, name = "time"),
     url(r'^ratings_landing_page.html', v.ratings_landing_page),
-    #url(r'^index1.html', v.index1),
     url(r'^rating_form.html', v.rating_form),
-    url(r'^test_ratings.html', v.test_ratings),
-    url(r'^ratings_view.html', v.ratings_view),
     url(r'^ratings_view_class.html', v.ratings_view_class),
-
-    #url(r'^(?P<postid>\d+)/preference/(?P<userpreference>\d+)/$', postpreference, name='postpreference'),
-    #url(r'^request_page.html',v.request_page, name='request'),
-    #url(r'^request_page.html',v.request_page, name='request'),
-    path('', v.maps),
     path('', v.rating_form),
     path('post_detail/<int:pk>/', v.post_detail, name='post_detail'),
     #url(r'^post_detail/<int:pk>.html', v.post_detail, name='post_detail'),

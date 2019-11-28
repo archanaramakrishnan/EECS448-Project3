@@ -12,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Blog Home - Start Bootstrap Template</title>
+  <title>Rate My Classes</title>
 
   <!-- Bootstrap core CSS -->
 
@@ -20,31 +20,134 @@
 
   <!-- Custom styles for this template -->
   <link href="{% static 'for_forms/startbootstrap-blog-home-gh-pages/css/blog-home.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+
+
+#sidebar-wrapper {
+  position: fixed;
+  z-index: 2;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  transition: all 0.4s ease 0s;
+  transform: translateX(250px);
+  background: #1D809F;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  top: 0;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+
+.sidebar-nav li.sidebar-nav-item a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 15px;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  font-size: 1.2rem;
+  background: rgba(52, 58, 64, 0.1);
+  height: 80px;
+  line-height: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #fff;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+#sidebar-wrapper.active {
+  right: 250px;
+  width: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+.menu-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  color: #fff;
+  background: rgba(52, 58, 64, 0.5);
+  line-height: 50px;
+  z-index: 999;
+}
+.menu-toggle:focus, .menu-toggle:hover {
+  color: #fff;
+}
+
+.menu-toggle:hover {
+  background: #343a40;
+}
+
+
+  </style>
 
 </head>
 
-<body>
+<body id="page-top">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Freshman starter kit</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/rating_form.html">Rate</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">Menu</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/">Homepage</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="../../add/maps">Run to My Classes</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="view_advice.html">Advice</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="time.html#time">Time Management</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="ratings_landing_page.html">Rate My Classes</a>
+      </li>
+    </ul>
   </nav>
 
   <!-- Page Content -->
@@ -55,13 +158,12 @@
       <!-- Blog Entries Column -->
       <div class="col-md-8">
 
-        <h1 class="my-4">Class ratings
-          <small>EECS classes</small>
+        <h1 class="my-4">Class Ratings
         </h1>
 
         <form id="searchform"  method="get" action="" accept-charset="utf-8">
                 <!--Drop Down select to filter the classes-->
-                Select the class to view it's ratings:
+                Use this to filter the classes you want to see
                 <br>
                   <select id="classChoice" name="classChoice">
                   <option value="all">ALL</option>
@@ -69,8 +171,7 @@
                   <option value="{{ rate.class_rated }}">{{ rate.class_rated }}</option>
                   {% endfor %}
                   </select>
-                  <br><br>
-                <input type="submit" value="OK" onclick="location.href='ratings_view_class.html';">
+                <input type="submit" value="FILTER" onclick="location.href='ratings_view_class.html';">
         </form>
           <br><br>
         <!-- Blog Post -->
@@ -79,7 +180,7 @@
 
         {% for rate in rates %}
 
-          <img class="card-img-top" src="{% static 'for_forms/post1.jpg' %}" alt="Card image cap">
+          <img class="card-img-top" src="{% static 'for_forms/post4.jpg' %}" height="70" alt="Card image cap">
           <div class="card-body">
             <h2 class="card-title">{{ rate.class_rated }}</h2>
 
@@ -107,13 +208,6 @@
       <div class="col-md-4">
 
 
-        <!-- Side Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Thanks for rating and viewing</h5>
-          <div class="card-body">
-            We are able to complile all the rating forms that upperclassmen filled.
-          </div>
-        </div>
 
       </div>
 
@@ -135,6 +229,18 @@
   <script src="{% static 'for_forms/startbootstrap-blog-home-gh-pages/vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'for_forms/startbootstrap-blog-home-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
+  <script src="{% static 'for_timer/js/refreshTime.js' %}"></script>
 </body>
 
 </html>
