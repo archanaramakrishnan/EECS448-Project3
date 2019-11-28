@@ -10,7 +10,7 @@
 
       <header class="masthead" style="background-image: url({% static 'for_advice/home-bg.jpg' %})">
         <div class="overlay"></div>
-        <span><div><a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">HI there</span></a></div></span>
+
 
         <div class="container">
           <div class="row">
@@ -36,11 +36,17 @@
                 {% endif %}
                 <h2>{{ post.title }}</h2>
                 <p>{{ post.text|linebreaksbr }}</p>
+                <br><br>
+                <p>Written by: {{ post.user_name }}</p>
+                <p>Year in school: {{ post.year_in_school }}</p>
                 <p>Number of likes: {{ post.like_count }}</p>
+                <br>
+                <button onclick="window.location = '{% url 'post_list' %}';">Back to view Posts!</button>
               </div>
             </div>
           </div>
         </div>
+
         <footer>
           <div class="container">
             <div class="row">

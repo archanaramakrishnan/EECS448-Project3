@@ -167,6 +167,7 @@ def post_detail(request, pk):
             'post': post,
             'post.like_count': post.like_count,
     }
+    #return redirect('view_advice.html#advice')
     return render(request, 'post_detail.html', context=context)
     #count = int(Post.like_count)
     #Post.like_count = p.like_set.all().count()
