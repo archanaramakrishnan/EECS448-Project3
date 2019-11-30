@@ -3,6 +3,13 @@ from .models import Building, MapForm, Map
 from haversine import haversine, Unit
 
 def add_map(request, id=id):
+    """
+    Directs to page with the form asking for upto 5 building choices. 
+    The function uses the coordinates of the chosen buildings to calculate the shortest distance using the haversine function and calculate the walking time using the average walking speed of people in their 20s (0.05033333 miles/minutes)
+    **Template:**
+
+    :template:`maps/map_form.html`
+    """
     if request.method == "POST":
         form = MapForm(request.POST)
         if form.is_valid():
@@ -60,6 +67,12 @@ def add_map(request, id=id):
     return render(request, 'maps/map_form.html', {'form':form})  
 
 def distance_output(request, id=id):
+    """
+    Directs to page with calculated distances and walking times, along with a google maps iframe of the KU campus
+    **Template:**
+
+    :template:`maps/map.html`
+    """
     context = {
         'distance_info': zip(user_buildings, destination_buildings, global_distances, global_times),
         'final_building': user_buildings[-1],

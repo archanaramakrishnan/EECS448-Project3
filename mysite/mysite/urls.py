@@ -27,8 +27,6 @@ urlpatterns = [
     url(r'^add/maps', map_v.add_map),
     url(r'^maps/(?P<id>\d+)/$', map_v.distance_output),
     url(r'^advice.html', v.advice),
-    url(r'^view_video.html', v.view_video),
-     url(r'^upload_video.html', v.upload_video),
      url(r'^view_advice.html', v.view_advice, name='post_list'),
      url(r'^post_new.html', v.post_new, name='post_new'),
      url(r'^time.html', v.time, name = "time"),

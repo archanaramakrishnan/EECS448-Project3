@@ -4,7 +4,7 @@ from django.utils import timezone
 
 class Post(models.Model):
     """
-    It is a model that stores infromation of advice posts made by students
+    A model that stores infromation of advice posts made by students
 
     """
     user_name = models.CharField(max_length=200)
@@ -31,11 +31,16 @@ class Post(models.Model):
 
 
     def publish(self):
-        """Makes the posts live on the site."""
+        """
+        Makes the posts live on the site, saved with a publish date of the current time in the appropriate timezone
+        """
         self.published_date = timezone.now()
         self.save()
 
     def __str__(self):
+        """
+        Returns the title of the post
+        """
         return self.title
 
 
@@ -47,7 +52,7 @@ class Preference(models.Model):
 
 class Rate(models.Model):
     """
-    It is a model that stores infromation needed to rate a class by a student
+    A model that stores information needed to rate a class
 
     """
     CLASS_RATED =[('EECS101','EECS 101'),
@@ -126,4 +131,7 @@ class Rate(models.Model):
 
 
     def __str__(self):
+        """
+        Returns the comments on the class
+        """
         return self.class_comments

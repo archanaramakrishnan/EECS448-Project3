@@ -11,8 +11,6 @@ from .models import Rate
 from .rate_forms import RateForm
 from django.db.models import Count
 
-# Create your views here.
-
 def index(request):
     """
     Directs to index.html page
@@ -24,7 +22,7 @@ def index(request):
 
 def time(request):
     """
-    Directs to time management homepage
+    Directs to time management homepage, with a timer of active time in hours:minutes:seconds format
     **Template:**
     :template:`myapp/time.html`
     """
@@ -48,7 +46,7 @@ def ratings_landing_page(request):
 
 def ratings_view_class(request):
         """
-        Directs to view a posted video
+        Directs to view posted ratings
 
         **Context**
 
@@ -57,7 +55,7 @@ def ratings_view_class(request):
 
         **Template:**
 
-        :template:`myapp/view_video.html`
+        :template:`myapp/ratings_view_class.html`
         """
         theClassRated= request.GET.get('classChoice', None);
         context = {};
@@ -83,29 +81,9 @@ def advice(request):
     """
     return render_to_response('advice.html')
 
-def upload_video(request):
-    """
-    Directs to upload video page
-
-    **Template:**
-
-    :template:`myapp/upload_video.html`
-    """
-    return render_to_response('upload_video.html')
-
-def view_video(request):
-    """
-    Directs to view a posted video
-
-    **Template:**
-
-    :template:`myapp/view_video.html`
-    """
-    return render_to_response('view_video.html')
-
 def view_advice(request):
     """
-    Directs to view a posted video
+    Directs to a page to view a posted pieces of advice
 
     **Context**
 
@@ -114,12 +92,24 @@ def view_advice(request):
 
     **Template:**
 
-    :template:`myapp/view_video.html`
+    :template:`myapp/view_advice.html`
     """
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'view_advice.html', {'posts': posts})
 
 def post_new(request):
+    """
+    Directs to a page to create new advice post
+
+    **Context**
+
+    ``posts``
+    An instance of :model:`myapp.Post`.
+
+    **Template:**
+
+    :template:`myapp/post_new.html`
+    """
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -127,7 +117,7 @@ def post_new(request):
             #post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('view_advice.html#advice')
+            return redirect('post_new.html#advice')
     else:
         form = PostForm()
     return render(request, 'post_new.html', {'form': form})
