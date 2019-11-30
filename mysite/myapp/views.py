@@ -9,7 +9,9 @@ from django.shortcuts import redirect
 from .maps_form import mapsForm
 from .models import Rate
 from .rate_forms import RateForm
-from django.db.models import Count
+from django.db.models import Count, F
+from django.shortcuts import get_object_or_404
+
 
 def index(request):
     """
@@ -97,19 +99,37 @@ def view_advice(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'view_advice.html', {'posts': posts})
 
+def add_likes(request):
+  if(request.GET.get('mybtn')):
+    Postss = Post.objects.get(title=request.title)
+    Postss.like_count += 1
+    Postss.save(update_fields=["like_count"])
+    #likes=Postss.like_count
+    print(Postss.like_count)
+    context={
+            'posts': posts,
+            #'like_count': likes+1,
+    }
+    return render(request, 'view_advice.html', context=context)
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.like_count += 1
+    post.save(update_fields=["like_count"])
+    context={
+            'post': post,
+            'post.like_count': post.like_count,
+    }
+    #return redirect('view_advice.html#advice')
+    return render(request, 'post_detail.html', context=context)
+
+
+def like_post(request):
+    post = get_object_or_404(Post, id = request.POST.get('post.id'))
+    return render(request, 'post_detail.html')
+
+
 def post_new(request):
-    """
-    Directs to a page to create new advice post
-
-    **Context**
-
-    ``posts``
-    An instance of :model:`myapp.Post`.
-
-    **Template:**
-
-    :template:`myapp/post_new.html`
-    """
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -117,7 +137,7 @@ def post_new(request):
             #post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('post_new.html#advice')
+            return redirect('view_advice.html#advice')
     else:
         form = PostForm()
     return render(request, 'post_new.html', {'form': form})

@@ -12,7 +12,7 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    likes= models.IntegerField(default=0)
+    like_count= models.IntegerField(default=0)
     YEAR_IN_SCHOOL_CHOICES = [
         ('Freshman', 'Freshman'),
         ('Sophomore', 'Sophomore'),

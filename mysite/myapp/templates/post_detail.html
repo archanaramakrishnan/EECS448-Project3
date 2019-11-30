@@ -141,7 +141,7 @@
 
       <header class="masthead" style="background-image: url({% static 'for_advice/home-bg.jpg' %})">
         <div class="overlay"></div>
-        <span><div><a href="post_new.html#addPost" class="top-menu"><span class="glyphicon glyphicon-plus">Add</span></a></div></span>
+        <span><div><a href="../../post_new.html#addPost" class="top-menu"><span class="glyphicon glyphicon-plus">Add</span></a></div></span>
 
         <div class="container">
           <div class="row">
@@ -155,50 +155,37 @@
           </div>
         </div>
       </header>
-<a name="advice"></a>
+
         <div class="content container">
-    <div class="row">
-        <div class="col-md-8">
-          {% for post in posts %}
+          <div class="row">
+            <div class="col-md-8">
               <div class="post">
-                  <div class="date">
-                      <p>published: {{ post.published_date }}</p>
-                  </div>
+                {% if post.published_date %}
 
-                      <h2>{{ post.title }}</h2>
-                      <h4>{{ post.user_name }} | {{ post.year_in_school }}</h4>
-                      <p>{{ post.text|linebreaksbr }}</p>
-                      <p>Number of likes: {{ post.like_count }}</p>
-                  <div>
-                    <button onclick="window.location.href = '{% url 'post_detail' pk=post.pk %}';">Like &#128077;</button>
+                <div class="date">
+                  {{ post.published_date }}
+                </div>
+                {% endif %}
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+                <p><strong>Written by:</strong> {{ post.user_name }}</p>
+                <p><strong>Year in School:</strong> {{ post.year_in_school }}</p>
+                <p><strong>Number of Likes:</strong> {{ post.like_count }}</p>
+                <br>
+                <button onclick="window.location = '../../view_advice.html#advice';">Back to View All Posts &#11013;</button>
               </div>
-              <br><br>
-          {% endfor %}
-
-
+            </div>
+          </div>
         </div>
-    </div>
-</div>
 
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <p class="copyright text-muted">Copyright &copy; Freshman Starter Kit 2019</p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="{% static 'for_timer/vendor/jquery/jquery.min.js' %}"></script>
-
-<!-- Plugin JavaScript -->
-<script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
-<!-- Contact form JavaScript -->
-
-
-<!-- Custom scripts for this template -->
-<script src="{% static 'for_timer/js/agency.min.js' %}"></script>
-
-    </body>
-</html>
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-md-10 mx-auto">
+                <p class="copyright text-muted">Copyright &copy; Freshman Starter Kit 2019</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+            </body>
+        </html>
