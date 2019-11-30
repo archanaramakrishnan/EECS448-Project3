@@ -9,13 +9,45 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <!-- Bootstrap CSS -->
  {% load staticfiles %}
   <link href="{% static 'for_maps/time_calculator.css' %}" rel="stylesheet"></link>
 
-<title>Maps</title>
-</head>
 
+<title>Maps</title>
+
+<link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+<!-- Navigation -->
+<body id="page-top">
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">Menu</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/">Homepage</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="../../add/maps">Run to My Classes</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/view_advice.html">Advice</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/time.html#time">Time Management</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/ratings_landing_page.html">Rate My Classes</a>
+      </li>
+    </ul>
+  </nav>
+  </body>
 <div id="timeline-content">
       <h1>Walk Time Calculator</h1>
 
@@ -39,5 +71,19 @@
     <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2522.2016887713385!2d-95.25275079311149!3d38.9573637545525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87bf6f32f3a8d673%3A0x53714e21ab238228!2sUniversity%20of%20Kansas!5e0!3m2!1sen!2sus!4v1572396283143!5m2!1sen!2sus"></a>
   </small>
 </section>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="{% static 'for_timer/vendor/jquery/jquery.min.js' %}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
+<!-- Contact form JavaScript -->
+
+
+<!-- Custom scripts for this template -->
+<script src="{% static 'for_timer/js/agency.min.js' %}"></script>
+
 
 {%endblock%}
