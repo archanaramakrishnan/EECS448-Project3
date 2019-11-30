@@ -123,3 +123,7 @@ class Rate(models.Model):
         max_length=20,
         choices=CLASS_OVERALL,
         default='I am so sorry for you',)
+
+
+    def __str__(self):
+        return self.class_comments
