@@ -24,7 +24,7 @@ function Update() {
       if ((parseInt(timeStart) % 600 == 0) &&  (parseInt(timeStart) != 0)) {
       var num = parseInt(timeStart);
       var toMin = parseInt(timeStart)/60;
-      alert("You have been active for " + toMin + " minutes");
+      alert("You have been active for " + toMin + " minutes. You should take a break!");
       //reminder.innerHTML = "It has been 30 seconds";
    }
     var hours = parseInt(timeStart / 3600 );
