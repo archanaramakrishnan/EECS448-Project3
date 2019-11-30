@@ -43,13 +43,6 @@ class Post(models.Model):
         """
         return self.title
 
-
-
-class Preference(models.Model):
-    post= models.ForeignKey(Post, on_delete=models.DO_NOTHING,)
-    value= models.IntegerField()
-
-
 class Rate(models.Model):
     """
     A model that stores information needed to rate a class
