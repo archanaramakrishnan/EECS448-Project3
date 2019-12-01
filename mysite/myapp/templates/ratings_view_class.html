@@ -96,13 +96,13 @@
             <h2 class="card-title">{{ rate.class_rated }}</h2>
 
             <!--I added the keyword get_function_display to display the vlaues that the user sees when selects an option-->
-            <p class="card-text">Class difficulty: {{ rate.get_class_difficulty_level_display }}</p>
-            <p class="card-text">Weekly workload in hours: {{ rate.get_class_hours_spent_display }}</p>
-            <p class="card-text">Grade received in the class: {{ rate.get_rater_grade_display }}</p>
-            <p class="card-text">Number of exams: {{ rate.class_exams_num }}</p>
-            <p class="card-text">Comments about the HW: {{ rate.class_hw }}</p>
-            <p class="card-text">Overall Comments: {{ rate.class_comments }}</p>
-            <p class="card-text">Overall message to freshman: {{ rate.get_class_overall_display }}</p>
+            <p class="card-text"><b>Class difficulty: </b>{{ rate.get_class_difficulty_level_display }}</p>
+            <p class="card-text"><b>Weekly workload in hours: </b>{{ rate.get_class_hours_spent_display }}</p>
+            <p class="card-text"><b>Grade received in the class:</b> {{ rate.get_rater_grade_display }}</p>
+            <p class="card-text"><b>Number of exams: </b>{{ rate.class_exams_num }}</p>
+            <p class="card-text"><b>Comments about the HW: </b>{{ rate.class_hw }}</p>
+            <p class="card-text"><b>Overall Comments: </b>{{ rate.class_comments }}</p>
+            <p class="card-text"><b>Overall message to freshman:</b>{{ rate.get_class_overall_display }}</p>
 
           </div>
           <div class="card-footer text-muted">

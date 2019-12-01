@@ -107,9 +107,9 @@ class Rate(models.Model):
 
     class_exams_num = models.IntegerField()
 
-    class_hw = models.CharField(max_length=400)
+    class_hw = models.TextField(max_length=400)
 
-    class_comments = models.CharField(max_length=400)
+    class_comments = models.TextField(max_length=400)
 
     CLASS_OVERALL = [('one','I am so sorry for you'),
                         ('two','Get ready for a hard semester'),
