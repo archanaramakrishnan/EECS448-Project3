@@ -51,6 +51,8 @@ var onMapMouseleaveHandler = function(event) {
   that.off('mouseleave', onMapMouseleaveHandler);
   that.find('iframe').css("pointer-events", "none");
 }
+
+
 var onMapClickHandler = function(event) {
   var that = $(this);
   // Disable the click handler until the user leaves the map area

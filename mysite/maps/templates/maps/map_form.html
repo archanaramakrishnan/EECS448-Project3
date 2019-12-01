@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   {% load staticfiles %}
+    <link href="{% static 'for_maps/maps_form.css' %}" rel="stylesheet"></link>
+    <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
+  <title>Maps</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+</head>
+<body id = "page-top">
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">Menu</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/">Homepage</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="../../add/maps">Run to My Classes</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="../view_advice.html">Advice</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="../time.html#time">Time Management</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="../ratings_landing_page.html">Rate My Classes</a>
+      </li>
+    </ul>
+  </nav>
+    <form method = "post">
+    <div class="container-fluid">
+    <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    <div class="col-md-8 col-lg-6">
+    <div class="login d-flex align-items-center py-5">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-9 col-lg-8 mx-auto">
+    <h3 align="center" class="login-heading mb-4">Select your class buildings according to your schedule!</h3>
+    <h4 align="center" class="login-heading mb-4">and we will calculate the time it will take you to walk between your classes</h4>
+
+<form method="POST" action="">
+    {% csrf_token %}
+
+    {{form.non_field_errors}}
+    <div align="center" class="form-label-group">
+        {{form.building1.errors}}
+        {{form.building1}}
+    </div>
+
+    <div align="center" class="form-label-group">
+        {{form.building2.errors}}
+        {{form.building2}}
+    </div>
+
+    <div align="center" class="form-label-group">
+        {{form.building3.errors}}
+        {{form.building3}}
+    </div>
+
+    <div align="center" class="form-label-group">
+        {{form.building4.errors}}
+        {{form.building4}}
+    </div>
+
+    <div align="center" class="form-label-group">
+        {{form.building5.errors}}
+        {{form.building5}}
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Calculate walking time</button>
+    <!--<input type="submit" value="Submit">-->
+</form>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="{% static 'for_timer/vendor/jquery/jquery.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
+    <!-- Contact form JavaScript -->
+
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'for_timer/js/agency.min.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+  {% load staticfiles %}
+  {% load static %}
+
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Rate My Classes</title>
+
+  <!-- Bootstrap core CSS -->
+
+  <link href="{% static 'for_forms/startbootstrap-blog-home-gh-pages/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'for_forms/startbootstrap-blog-home-gh-pages/css/blog-home.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
+  <!-- Custom CSS -->
+
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">Menu</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="/">Homepage</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="../../add/maps">Run to My Classes</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="view_advice.html">Advice</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="time.html#time">Time Management</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="ratings_landing_page.html">Rate My Classes</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+        <h1 class="my-4">Class Ratings
+        </h1>
+
+        <form id="searchform"  method="get" action="" accept-charset="utf-8">
+                <!--Drop Down select to filter the classes-->
+                Use this to filter the classes you want to see
+                <br>
+                  <select id="classChoice" name="classChoice">
+                  <option value="all">ALL</option>
+                    {% for rate in choiceToFilter %}
+                  <option value="{{ rate.class_rated }}">{{ rate.class_rated }}</option>
+                  {% endfor %}
+                  </select>
+                <input type="submit" value="FILTER" onclick="location.href='ratings_view_class.html';">
+        </form>
+          <br><br>
+        <!-- Blog Post -->
+        <div class="card mb-4">
+
+
+        {% for rate in rates %}
+
+          <img class="card-img-top" src="{% static 'for_forms/post4.jpg' %}" height="70" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">{{ rate.class_rated }}</h2>
+
+            <!--I added the keyword get_function_display to display the vlaues that the user sees when selects an option-->
+            <p class="card-text"><b>Class difficulty: </b>{{ rate.get_class_difficulty_level_display }}</p>
+            <p class="card-text"><b>Weekly workload in hours: </b>{{ rate.get_class_hours_spent_display }}</p>
+            <p class="card-text"><b>Grade received in the class:</b> {{ rate.get_rater_grade_display }}</p>
+            <p class="card-text"><b>Number of exams: </b>{{ rate.class_exams_num }}</p>
+            <p class="card-text"><b>Comments about the HW: </b>{{ rate.class_hw }}</p>
+            <p class="card-text"><b>Overall Comments: </b>{{ rate.class_comments }}</p>
+            <p class="card-text"><b>Overall message to freshman:</b>{{ rate.get_class_overall_display }}</p>
+
+          </div>
+          <div class="card-footer text-muted">
+          </div>
+          {% endfor %}
+        </div>
+
+        </div>
+
+
+
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Freshman Starter Kit</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'for_forms/startbootstrap-blog-home-gh-pages/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'for_forms/startbootstrap-blog-home-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
+  <script src="{% static 'for_timer/js/refreshTime.js' %}"></script>
+</body>
+
+</html>

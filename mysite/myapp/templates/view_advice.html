@@ -1,0 +1,118 @@
+{% load static %}
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+        <title>Advice</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'for_advice/blog.css' %}">
+        <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
+        <style>
+        .top-menu > .glyphicon:last-child {
+          position: absolute;
+          top: 2px;
+          left: 2px;
+      }
+        </style>
+        
+         <!-- Bootstrap Core CSS -->
+         <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+         <!-- EDIT -->
+
+    </head>
+    <body id = "page-top">
+      <a class="menu-toggle rounded" href="#">
+        <i class="fas fa-bars"></i>
+      </a>
+      <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a class="js-scroll-trigger" href="#page-top">Menu</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/">Homepage</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="../../add/maps">Run to My Classes</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="view_advice.html">Advice</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="time.html#time">Time Management</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="ratings_landing_page.html">Rate My Classes</a>
+          </li>
+        </ul>
+      </nav>
+
+      <header class="masthead" style="background-image: url({% static 'for_advice/home-bg.jpg' %})">
+        <div class="overlay"></div>
+        <span><div><a href="post_new.html#addPost" class="top-menu"><span class="glyphicon glyphicon-plus">Add</span></a></div></span>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+
+              <div class="site-heading">
+                <h1 align="center">Advice Social Network!</h1>
+                <span class="subheading">View advice from fellow Jayhawks!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+<a name="advice"></a>
+        <div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+          {% for post in posts %}
+              <div class="post">
+                  <div class="date">
+                      <p>published: {{ post.published_date }}</p>
+                  </div>
+
+                      <h2>{{ post.title }}</h2>
+                      <h4>{{ post.user_name }} | {{ post.year_in_school }}</h4>
+                      <p>{{ post.text|linebreaksbr }}</p>
+                      <p>Number of likes: {{ post.like_count }}</p>
+                  <div>
+                    <button onclick="window.location.href = '{% url 'post_detail' pk=post.pk %}';">Like &#128077;</button>
+              </div>
+              <br><br>
+          {% endfor %}
+
+
+        </div>
+    </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p class="copyright text-muted">Copyright &copy; Freshman Starter Kit 2019</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="{% static 'for_timer/vendor/jquery/jquery.min.js' %}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
+<!-- Contact form JavaScript -->
+
+
+<!-- Custom scripts for this template -->
+<script src="{% static 'for_timer/js/agency.min.js' %}"></script>
+
+    </body>
+</html>
