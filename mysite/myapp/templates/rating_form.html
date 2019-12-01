@@ -69,7 +69,23 @@
               <h3 class="login-heading mb-4">Write a class review</h3>
               <form>
                  {% csrf_token %}
-                  {{ form.as_p }}
+                  What is the class you are rating? {{ form.class_rated }}
+                  <br><br>
+                  Difficulty of the class: {{ form.class_difficulty_level }}
+                  <br><br>
+                  How many hours did you spend outside of class? {{ form.class_hours_spent }}
+                  <br><br>
+                  What was your grade for the class? {{ form.rater_grade }}
+                  <br><br>
+                  Number of exams in the course: {{ form.class_exams_num }}
+                  <br><br>
+                  Comments on the class homework: {{ form.class_hw }}
+                  <br><br>
+                  Other comments about the class: {{ form.class_comments }}
+                  <br><br>
+                  Overall: {{ form.class_overall }}
+                  <br><br>
+
                 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" >Rate Class</button>
               </form>
           </div>
